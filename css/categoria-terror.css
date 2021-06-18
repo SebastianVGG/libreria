@@ -1,0 +1,139 @@
+
+/* Header */
+
+.dropdown:hover>.dropdown-menu {
+  display: inline-block;
+}
+
+.nav1{
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+}
+
+.itemMar{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.BusBar{
+  border: solid;
+  border-color:cornflowerblue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.slider_ img{
+    height: 15rem;  
+}
+.slider_{
+  margin: auto;
+  width: 90rem;
+}
+.row_f{
+  margin: auto;
+  width: 80%;
+}
+.card{
+  border-style: none;
+  width: 18rem;
+  height: 25rem;
+  margin: auto !important;
+}
+
+.card img{
+  width: 8rem;
+  height: 13rem;
+  margin: auto;
+  padding-top: 1rem;
+  transition: 1.5s ease;
+  -webkit-transition: 1.5s ease; 
+}
+
+.card img:hover{
+  cursor: pointer;
+  opacity: 0.7;
+  transform : scale(0.5);
+  -webkit-transform : scale(1.1); 
+}
+
+.card-title span:hover{
+  cursor: pointer;
+color: crimson;
+}
+
+.autor_nombre{
+  text-decoration-line: underline;
+}
+
+.autor_nombre:hover{
+  cursor: pointer;
+  color: crimson;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    background-color: #2a2a2a;
+    opacity: 90%;
+  }
+  a {
+    text-decoration: none;
+  }
+  a > span:hover{
+    color: chocolate;
+  }
+  .networks > a {
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bg-facebook{
+    background-color: rgb(0, 4, 214);
+  }
+  .bg-twitter{
+    background-color: rgb(44, 201, 201);
+  }
+  .bg-dribble{
+    background-color: rgb(199, 22, 22);
+  }
+  
+  .bg-facebook img:hover{
+    animation:headShake;
+    animation-duration: 2s;
+  }
+  .bg-twitter img:hover{
+    animation:headShake;
+    animation-duration: 2s;
+  }
+  .bg-dribble img:hover{
+    animation:headShake;
+    animation-duration: 2s;
+  }

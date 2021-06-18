@@ -1,0 +1,164 @@
+.dropdown:hover>.dropdown-menu {
+  display: inline-block;
+}
+
+.nav1{
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+}
+
+.itemMar{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.BusBar{
+  border: solid;
+  border-color:cornflowerblue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Content */
+.row_1{
+margin-top: 7rem;
+margin-bottom: 5rem;
+}
+
+.col_form1 .c_btn1{
+    width: 10rem;
+    height: 2.3rem;
+    background-color: cadetblue;
+}
+.c_btn2{
+    width: 10rem;
+    height: 2.3rem;
+    background-color: cadetblue;
+}
+
+
+
+/* Footer */
+
+footer{
+    background-color: #2a2a2a;
+    opacity: 90%;
+  }
+  a {
+    text-decoration: none;
+  }
+  a > span:hover{
+    color: chocolate;
+  }
+  .networks > a {
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bg-facebook{
+    background-color: rgb(0, 4, 214);
+  }
+  .bg-twitter{
+    background-color: rgb(44, 201, 201);
+  }
+  .bg-dribble{
+    background-color: rgb(199, 22, 22);
+  }
+  
+  .bg-facebook img:hover{
+    animation:headShake;
+    animation-duration: 2s;
+  }
+  .bg-twitter img:hover{
+    animation:headShake;
+    animation-duration: 2s;
+  }
+  .bg-dribble img:hover{
+    animation:headShake;
+    animation-duration: 2s;
+  }
+  
+.c_login_email2{
+  width: 23.6rem;
+}
+
+.col_form1{
+    width: 30rem;
+    
+}
+
+.col_form2{
+    width: 50rem;
+   margin-left: 2rem;
+}
+
+@media only screen and (max-width: 1400px) and (min-width: 992px) { 
+    .col_form1{
+        width: 15rem;  
+        
+        margin: auto;
+    }
+    .col_form1 h3{
+        
+        margin: auto;
+    }
+    .col_form2{
+        width: 40rem;
+      
+    }
+    .c_login_email2{
+      width: 18.5rem;
+    }
+  }  
+@media only screen and (max-width: 991px) and (min-width: 770px) { 
+    .col_form1{
+        width: 15rem;
+        margin: auto;
+    }
+    .col_form2{
+        margin-left: 5rem;
+        width: 20rem;
+        
+    }
+    .row_1{
+        margin: auto;
+    }
+    .c_login_email2{
+      width: 18.5rem;
+    }
+  }  
+
+@media only screen and (max-width: 769px) and (min-width: 100px) {  
+   
+    .col_form1{
+      width: 15rem;
+      margin: auto;
+    }
+    .col_form2{
+        margin-left: 5rem;
+        width: 20rem;
+        
+    }
+
+    .row_1{
+        margin: auto;
+    }
+
+    .col_form1 button{
+      margin-bottom: 5rem;
+      margin-left: 1rem;
+  }
+  .c_login_email2{
+    width: 18.5rem;
+  }
+ 
+
+}  
+
+  

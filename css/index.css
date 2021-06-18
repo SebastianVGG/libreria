@@ -1,0 +1,485 @@
+.dropdown:hover>.dropdown-menu {
+  display: inline-block;
+}
+
+.nav1{
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+}
+
+.itemMar{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.BusBar{
+  border: solid;
+  border-color:cornflowerblue;
+  border-radius: 5px;
+  padding: 5px;
+}
+/* Caruousel principal */
+
+
+.ancestor1 .carousel-item img {
+  height: 20rem;
+  margin: auto;
+}
+.ancestor1 .carousel-item img:hover {
+  cursor: pointer;
+}
+
+/* Autores y libros recomendados */
+.flex-row h5{
+  text-align: center;
+  margin: auto;
+  margin-left: 20rem;
+}
+
+  .left_{
+    padding-left: 25rem;
+  }
+  .left_ img{
+    border-style: solid;
+    width: 15rem;
+    float: left;
+    position:relative;
+  }
+
+  /* .row_r{
+    width: 20rem;
+  } */
+  
+  .right_{
+   padding-left: 25rem;
+   margin-top: 5rem;
+   
+  }
+  .right_ img{
+    border-style: solid;
+    width: 15rem;
+    float: right;
+    position:relative;
+  }
+  .text-wrap{
+    width: 50rem;
+  }
+  
+.left_t{
+ margin-left: 20rem;
+}
+.left_t h5{
+ margin-right: 20rem;
+}
+.right_t{
+ padding-right: 20rem;
+}
+.right_ h5{
+ margin-right: 20rem;
+}
+
+/* Efectos de autores y libros recomendados */
+
+.right_ img{
+  transition: 1.5s ease;
+  -webkit-transition: 1s ease; 
+}
+.left_ img{
+  transition: 1.5s ease;
+  -webkit-transition: 1s ease; 
+}
+.right_ img:hover{
+  cursor: pointer;
+  opacity: 0.9;
+  transform : scale(0.5);
+  -webkit-transform : scale(1.1); 
+}
+.left_ img:hover{
+  cursor: pointer;
+  opacity: 0.9;
+  transform : scale(0.5);
+  -webkit-transform : scale(1.1); 
+}
+.right_ h5:hover{
+  cursor: pointer;
+  color: blueviolet;
+ }
+.left_ h5:hover{
+  cursor: pointer;
+  color: blueviolet;
+ }
+
+/* Carousel de libros del dia */
+
+
+.carousel-control-next-icon {
+  height: 2rem;
+  width: 2rem;
+  background-color: black;
+  border-radius: 15px;
+  margin-left: 10rem;
+  margin: auto;
+}
+.carousel-control-prev-icon {
+  height: 2rem;
+  width: 2rem;
+  background-color: black;
+  border-radius: 15px;
+  margin-right: 10rem;
+  margin: auto;
+}
+.carousel-control-prev {
+  width: 3rem;
+  height: 4rem;
+  margin: auto;
+}
+.carousel-control-next {
+  width: 3rem;
+  height: 4rem;
+  margin: auto;
+}
+.card{
+  border-style: none;
+}
+
+/* .col-lg-4{
+  width: 20rem;
+} */
+
+.card img{
+  width: 8rem;
+  height: 13rem;
+  margin: auto;
+  padding-top: 1rem;
+  transition: 1.5s ease;
+  -webkit-transition: 1.5s ease; 
+}
+
+.card img:hover{
+  cursor: pointer;
+  opacity: 0.7;
+  transform : scale(0.5);
+  -webkit-transform : scale(1.1); 
+}
+
+.card-title span:hover{
+  cursor: pointer;
+color: crimson;
+}
+
+.autor_nombre{
+  text-decoration-line: underline;
+}
+
+.autor_nombre:hover{
+  cursor: pointer;
+  color: crimson;
+}
+
+/* Footer */
+
+footer{
+  background-color: #2a2a2a;
+  opacity: 90%;
+}
+a {
+  text-decoration: none;
+}
+a > span:hover{
+  color: chocolate;
+}
+.networks > a {
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--size);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-facebook{
+  background-color: rgb(0, 4, 214);
+}
+.bg-twitter{
+  background-color: rgb(44, 201, 201);
+}
+.bg-dribble{
+  background-color: rgb(199, 22, 22);
+}
+
+.bg-facebook img:hover{
+  animation:headShake;
+  animation-duration: 2s;
+}
+.bg-twitter img:hover{
+  animation:headShake;
+  animation-duration: 2s;
+}
+.bg-dribble img:hover{
+  animation:headShake;
+  animation-duration: 2s;
+}
+
+
+@media only screen and (max-width: 1600px) and (min-width: 1351px) { 
+ .left_{
+  padding-left: 10rem;
+ }
+ .right_{
+  padding-left: 10rem;
+ }
+}  
+@media only screen and (max-width: 1350px) and (min-width: 1171px) { 
+ .left_{
+  padding-left: 0rem;
+ }
+ .right_{
+  padding-left: 0rem;
+ }
+}
+
+@media only screen and (max-width: 1170px) and (min-width: 871px) { 
+  .left_{
+    padding-left: 0rem;
+    width: 80%;
+   }
+
+   .left_t h5{
+    width: 100%;
+    margin-left: 10rem;
+   }
+   .right_{
+    padding-left: 0rem;
+    margin-bottom: 7rem;
+   }
+   .right_ img{
+    position:fixed;
+    left: 35rem;
+    
+   }
+   .right_t{
+     width: 50rem;
+   }
+
+   .right_t h5{
+    width: 100%;
+    margin-left: 10rem;
+   }
+  .text-wrap{
+    width: 30rem;
+  }
+
+
+}  
+
+@media only screen and (max-width: 870px) and (min-width: 751px) { 
+   .left_ img{
+    position: absolute;
+  display: block;
+  margin: auto;
+  top: 50px;
+  left: 17rem;
+   }
+   .left_t{
+    position: absolute;
+    display: block;
+    top: 22rem;
+    left: 7rem;
+    margin: auto;
+    width: 38rem;
+    
+   }
+   .left_t h5{
+    width: 20rem;
+    margin-left: 13rem;
+   }
+   .right_ img{
+    position: absolute;
+  display: block;
+  margin: auto;
+  top: 50px;
+  left: 17rem;
+   }
+   .right_t{
+    position: absolute;
+    display: block;
+    top: 22rem;
+    left: 7rem;
+    margin: auto;
+    width: 35rem;
+   }
+   .right_t h5{
+    width: 100%;
+    margin-left: 13rem;
+   }
+
+   .flex-row{
+     height: 35rem;
+   }
+  .text-wrap{
+    width: 35rem;
+  }
+
+  
+  footer .links_{
+    height: 2rem;
+  }
+}  
+@media only screen and (max-width: 750px) and (min-width: 651px) { 
+   .left_ img{
+    position: absolute;
+  display: block;
+  margin: auto;
+  top: 50px;
+  left: 13rem;
+   }
+   .left_t{
+    position: absolute;
+    display: block;
+    top: 22rem;
+    left: 2rem;
+    margin: auto;
+    width: 30rem;
+   }
+   .left_t h5{
+    width: 20rem;
+    margin-left: 13rem;
+   }
+   .right_ img{
+    position: absolute;
+  display: block;
+  margin: auto;
+  top: 50px;
+  left: 13rem;
+   }
+   .right_t{
+    position: absolute;
+    display: block;
+    top: 22rem;
+    left: 2rem;
+    margin: auto;
+    width: 35rem;
+   }
+   .right_t h5{
+    width: 100%;
+    margin-left: 13rem;
+   }
+   .flex-row{
+    height: 35rem;
+   }
+  .text-wrap{
+    width: 35rem;
+  }
+
+  footer .links_{
+    height: 2rem;
+  }
+  
+}  
+@media only screen and (max-width: 650px) and (min-width: 541px) { 
+   .left_ img{
+    position: absolute;
+  display: block;
+  margin: auto;
+  top: 50px;
+  left: 12rem;
+   }
+   .left_t{
+    position: absolute;
+    display: block;
+    top: 22rem;
+    left: 7rem;
+    margin: auto;
+    width: 30rem;
+   }
+   .left_t h5{
+    width: 20rem;
+    margin-left: 7rem;
+   }
+   .right_ img{
+    position: absolute;
+  display: block;
+  margin: auto;
+  top: 50px;
+  left: 12rem;
+   }
+   .right_t{
+    position: absolute;
+    display: block;
+    top: 22rem;
+    left: 7rem;
+    margin: auto;
+    width: 30rem;
+   }
+   .right_t h5{
+    width: 20rem;
+    margin-left: 7rem;
+   }
+   .flex-row{
+    height: 35rem;
+   }
+  .text-wrap{
+    width: 25rem;
+  }
+  .ancestor2{
+    display:flex;
+
+  }
+
+  footer .links_{
+    height: 2rem;
+  }
+}  
+
+@media only screen and (max-width: 540px) and (min-width: 500px) { 
+  .left_ img{
+   position: absolute;
+ display: block;
+ margin: auto;
+ top: 50px;
+ left: 7rem;
+  }
+  .left_t{
+   position: absolute;
+   display: block;
+   top: 22rem;
+   left: 2rem;
+   margin: auto;
+   width: 25rem;
+  }
+  .left_t h5{
+   width: 20rem;
+   margin-left: 7rem;
+  }
+  .right_ img{
+   position: absolute;
+ display: block;
+ margin: auto;
+ top: 50px;
+ left: 7rem;
+  }
+  .right_t{
+   position: absolute;
+   display: block;
+   top: 22rem;
+   left: 2rem;
+   margin: auto;
+   width: 25rem;
+  }
+  .right_t h5{
+   width: 20rem;
+   margin-left: 7rem;
+  }
+  .flex-row{
+   height: 35rem;
+  }
+ .text-wrap{
+   width: 25rem;
+ }
+
+ footer .links_{
+   height: 2rem;
+ }
+}  
