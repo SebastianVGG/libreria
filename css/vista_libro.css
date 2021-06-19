@@ -1,0 +1,23 @@
+
+.autor_nombre{
+  text-decoration-line: underline;
+}
+
+.autor_nombre:hover{
+  cursor: pointer;
+  color: crimson;
+}
+
+.add-carrito{
+    margin-top: 10rem;
+}
+
+.icon-col div{
+    width: 15rem;
+    margin: auto;
+}
+
+.icon-col img{
+    width: 4rem;
+    height: 2rem;
+}
