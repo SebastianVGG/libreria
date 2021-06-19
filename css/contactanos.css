@@ -1,0 +1,19 @@
+.dropdown:hover>.dropdown-menu {
+    display: inline-block;
+}
+
+.nav1{
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+}
+
+.itemMar{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.MiniIcon{
+    width: 20px;
+    height: 20px;
+}

@@ -1,0 +1,34 @@
+.dropdown:hover>.dropdown-menu {
+    display: inline-block;
+}
+
+.nav1{
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+}
+
+.itemMar{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.LibroPortada{
+    width: 80px; 
+    height: 130px;
+}
+
+.MiniIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.InputPequeño{
+    width: 70px;
+    text-align: center;
+}
+
+.tdCentrado{
+    vertical-align: middle;
+    text-align: center;
+}

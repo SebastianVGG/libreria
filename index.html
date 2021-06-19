@@ -31,21 +31,21 @@
   <body>
     <!-- nav -->
     <div>
-      <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between">
-        <img class="animate__animated animate__backInRight animate__slow" src="imagenes/LogoBGO.png"/>
+      <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
+        <img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png"/>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button class="btn btn-outline-info mx-2" type="submit">Search</button>
+          <button class="btn btn-outline-light mx-2" type="submit">Search</button>
         </form>
       </nav>
     </div>
     <div>
-      <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+      <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary px-5">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+          <ul class="navbar-nav me-auto navbar-nav-scroll">
             <li class="nav-item dropdown itemMar">
               <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Libros
@@ -84,6 +84,23 @@
                 <li><a class="dropdown-item" href="#">Primaria</a></li>
                 <li><a class="dropdown-item" href="#">Secundaria</a></li>
               </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="d-inline">
+          <ul class="navbar-nav navbar-nav-scroll d-flex-inline"style="text-align:right">
+            <li class="nav-item itemMar border border-2 border-white">
+              <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+                <img src="images/icons/IconCarrito.png" class="MiniIcon">
+                Carrito
+              </a>
+            </li>
+            <br>
+            <li class="nav-item itemMar border border-2 border-white">
+              <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+                <img src="images/icons/IconPerfil.png" class="MiniIcon">
+                Mi cuenta
+              </a>
             </li>
           </ul>
         </div>

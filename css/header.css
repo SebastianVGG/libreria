@@ -1,0 +1,20 @@
+.dropdown:hover>.dropdown-menu {
+    display: inline-block;
+}
+
+.itemMar{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.BusBar{
+    border: solid;
+    border-color:cornflowerblue;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.MiniIcon{
+    width: 20px;
+    height: 20px;
+}
