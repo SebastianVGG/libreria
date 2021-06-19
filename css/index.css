@@ -177,51 +177,6 @@ color: crimson;
   color: crimson;
 }
 
-/* Footer */
-
-footer{
-  background-color: #2a2a2a;
-  opacity: 90%;
-}
-a {
-  text-decoration: none;
-}
-a > span:hover{
-  color: chocolate;
-}
-.networks > a {
-  --size: 40px;
-  width: var(--size);
-  height: var(--size);
-  border-radius: var(--size);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.bg-facebook{
-  background-color: rgb(0, 4, 214);
-}
-.bg-twitter{
-  background-color: rgb(44, 201, 201);
-}
-.bg-dribble{
-  background-color: rgb(199, 22, 22);
-}
-
-.bg-facebook img:hover{
-  animation:headShake;
-  animation-duration: 2s;
-}
-.bg-twitter img:hover{
-  animation:headShake;
-  animation-duration: 2s;
-}
-.bg-dribble img:hover{
-  animation:headShake;
-  animation-duration: 2s;
-}
-
 
 @media only screen and (max-width: 1600px) and (min-width: 1351px) { 
  .left_{
@@ -322,10 +277,7 @@ a > span:hover{
     width: 35rem;
   }
 
-  
-  footer .links_{
-    height: 2rem;
-  }
+
 }  
 @media only screen and (max-width: 750px) and (min-width: 651px) { 
    .left_ img{
@@ -373,9 +325,6 @@ a > span:hover{
     width: 35rem;
   }
 
-  footer .links_{
-    height: 2rem;
-  }
   
 }  
 @media only screen and (max-width: 650px) and (min-width: 541px) { 
@@ -428,9 +377,6 @@ a > span:hover{
 
   }
 
-  footer .links_{
-    height: 2rem;
-  }
 }  
 
 @media only screen and (max-width: 540px) and (min-width: 500px) { 
@@ -479,7 +425,4 @@ a > span:hover{
    width: 25rem;
  }
 
- footer .links_{
-   height: 2rem;
- }
 }  
