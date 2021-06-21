@@ -1,22 +1,3 @@
-<?php
-include("php/config.php");
-$limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 8;
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-$start = ($page - 1) * $limit;
-$result = $link->query("SELECT * FROM libro WHERE id_categoria = 1 LIMIT $start, $limit");
-$libros = $result->fetch_all(MYSQLI_ASSOC);
-$result1 = $link->query("SELECT count(id) AS id FROM libro");
-$custCount = $result1->fetch_all(MYSQLI_ASSOC);
-$total = $custCount[0]['id'];
-$pages = ceil($total / $limit);
-
-$Previous = $page - 1;
-$Next = $page + 1;
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +10,7 @@ $Next = $page + 1;
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/categoria-terror.css" />
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/loader.css">
   <title>Document</title>
 </head>
 
@@ -36,7 +18,7 @@ $Next = $page + 1;
   <!-- nav -->
   <div>
     <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
-      <img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png" />
+    <a href="index.html"><img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png" /></a>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-light mx-2" type="submit">Search</button>
@@ -76,7 +58,7 @@ $Next = $page + 1;
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li><a class="dropdown-item" href="#">Ciencia ficción</a></li>
               <li><a class="dropdown-item" href="#">Romance</a></li>
-              <li><a class="dropdown-item" href="#">Terror</a></li>
+              <li><a class="dropdown-item" href="categoria-terror.php">Terror</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown itemMar">
@@ -120,29 +102,8 @@ $Next = $page + 1;
         </div> -->
     </div>
     <div class="row">
-      <div class="row row_f">
+      <div id="loadData" class="row row_f ">
         <!-- libros -->
-        <?php foreach ($libros as $libro) :
-          $get_id_autor = $libro['id_autor'];
-          $get_autor = $link->query("SELECT * FROM autor WHERE id = $get_id_autor");
-          $autor = $get_autor->fetch_all(MYSQLI_ASSOC);
-        ?>
-
-          <div class="col">
-            <div class="card">
-              <img src="<?= $libro['img']; ?>" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title text-center pt-1"><span><?= $libro['titulo']; ?></span></h5>
-                <h6 class="card-text text-center pt-2">
-                  <span class="autor">Autor </span><span class="autor_nombre fw-bold"><?= $autor[0]['nombre'] ?></span>
-                </h6>
-                <h3 class="card-text text-center libro_precio pt-5">$<?= $libro['precio']; ?></h3>
-              </div>
-            </div>
-          </div>
-
-          <?php endforeach; ?>
-
         <!-- Card example -->
         <!-- <div class="col">
             <div class="card">
@@ -162,24 +123,8 @@ $Next = $page + 1;
           </div> -->
       </div>
     </div>
-
-    <!-- Paginacion -->
-
-    <nav aria-label="Page navigation">
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="categoria-terror.php?page=<?= $Previous; ?>" aria-label="Previous">
-            <span aria-hidden="true">&laquo; Previous</span>
-          </a>
-        </li>
-        <?php for ($i = 1; $i <= $pages; $i++) : ?>
-          <li class="page-item"><a class="page-link" href="categoria-terror.php?page=<?= $i; ?>"><?= $i; ?></a></li>
-        <?php endfor; ?>
-        <li class="page-item">
-          <a class="page-link" href="categoria-terror.php?page=<?= $Next; ?>" aria-label="Next"><span aria-hidden="true">Next</span></a>
-        </li>
-      </ul>
-    </nav>
+    <!-- <div id="loaded" class="d-flex justify-content-center">
+    </div> -->
     <!-- footer -->
     <footer>
       <div class="container-fluid">
