@@ -146,9 +146,9 @@
               text-white
               links_
             ">
-          <a href="" class="link-light"><span>Inicio</span></a>
-          <a href="" class="link-light px-4"><span>Acerca de</span></a>
-          <a href="" class="link-light"><span>Contáctanos</span></a>
+          <a href="index.php" class="link-light"><span>Inicio</span></a>
+          <a href="acerca.html" class="link-light px-4"><span>Acerca de</span></a>
+          <a href="contactanos.html" class="link-light"><span>Contáctanos</span></a>
         </div>
         <div class="row text-center pt-2 text-white">
           <p>Aviso de privacidad | Términos y condiciones</p>
