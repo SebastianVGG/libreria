@@ -83,7 +83,7 @@
           </li>
           <br>
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+            <a class="nav-link text-light text-center" href="login.html" id="navbarScrollingDropdown" role="button" aria-expanded="false">
               <img src="images/icons/IconPerfil.png" class="MiniIcon">
               Mi cuenta
             </a>

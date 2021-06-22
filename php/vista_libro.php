@@ -210,7 +210,7 @@ $formato = $row['formato'];
             <li class="nav-item itemMar border border-2 border-white">
               <a
                 class="nav-link text-light text-center"
-                href="#"
+                href="login.html"
                 id="navbarScrollingDropdown"
                 role="button"
                 aria-expanded="false"
@@ -239,8 +239,8 @@ $formato = $row['formato'];
           </div>
         </div>
         <div class="col">
-          <div class="precio"><span>PRECIO: </span>$<?=$precio?></div>
-          <div class="add-carrito">AGREGAR A CARRITO</div>
+          <div class="precio text-center mt-5"><span class="fw-bold">PRECIO: </span>$<?=$precio?></div>
+          <div class="add-carrito text-center"><span class="fw-bold">AGREGAR A CARRITO</span></div>
         </div>
       </div>
       <div class="row">
@@ -264,39 +264,30 @@ $formato = $row['formato'];
       </div>
     </div>
 
-    <!-- Footer -->
+    <!-- footer -->
     <footer>
       <div class="container-fluid">
-        <div
-          class="row d-flex justify-content-center text-center pt-3 networks"
-        >
+        <div class="row d-flex justify-content-center text-center pt-3 networks">
           <!-- fb -->
-          <a href="#" class="bg-facebook"
-            ><img data-aos="flip-left" src="images/icons/facebook.svg"
-          /></a>
+          <a href="#" class="bg-facebook"><img data-aos="flip-left" src="images/icons/facebook.svg" /></a>
           <!-- tw -->
-          <a href="#" class="bg-twitter mx-3"
-            ><img data-aos="flip-left" src="images/icons/twitter.svg"
-          /></a>
+          <a href="#" class="bg-twitter mx-3"><img data-aos="flip-left" src="images/icons/twitter.svg" /></a>
           <!-- Dbb -->
           <a href="#" class="bg-dribble">
             <img data-aos="flip-left" src="images/icons/dribbble.svg" />
           </a>
         </div>
-        <div
-          class="
-            d-flex
-            flex-row
-            justify-content-center
-            text-center
-            pt-2
-            text-white
-            links_
-          "
-        >
-          <a href="" class="link-light"><span>Inicio</span></a>
-          <a href="" class="link-light px-4"><span>Acerca de</span></a>
-          <a href="" class="link-light"><span>Contáctanos</span></a>
+        <div class="
+            d-flex flex-row
+              justify-content-center
+              text-center
+              pt-2
+              text-white
+              links_
+            ">
+          <a href="index.php" class="link-light"><span>Inicio</span></a>
+          <a href="acerca.html" class="link-light px-4"><span>Acerca de</span></a>
+          <a href="contactanos.html" class="link-light"><span>Contáctanos</span></a>
         </div>
         <div class="row text-center pt-2 text-white">
           <p>Aviso de privacidad | Términos y condiciones</p>

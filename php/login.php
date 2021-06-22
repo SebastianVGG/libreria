@@ -1,78 +1,292 @@
-<?php
-// Initialize the session
-session_start();
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
-    exit;
-}
- 
-// Include config file
-require_once "config.php";
- 
-// Define variables and initialize with empty values
-$username = $password = "";
-$username_err = $password_err = $login_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Document</title>
+  </head>
+  <body>
+  <!-- nav -->
+  <div>
+    <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
+      <img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png"/>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-light mx-2" type="submit">Search</button>
+      </form>
+    </nav>
+  </div>
+  <div>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary px-5">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto navbar-nav-scroll">
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Libros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Novedades</a></li>
+              <li><a class="dropdown-item" href="#">Los mas leidos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Niños
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Colorear</a></li>
+              <li><a class="dropdown-item" href="#">Comic</a></li>
+              <li><a class="dropdown-item" href="#">Ilustrados</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Adolescentes
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="#">Romance</a></li>
+              <li><a class="dropdown-item" href="#">Terror</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Escolares
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Jardin de niños</a></li>
+              <li><a class="dropdown-item" href="#">Primaria</a></li>
+              <li><a class="dropdown-item" href="#">Secundaria</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="d-inline">
+        <ul class="navbar-nav navbar-nav-scroll d-flex-inline"style="text-align:right">
+          <li class="nav-item itemMar border border-2 border-white">
+            <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+              <img src="images/icons/IconCarrito.png" class="MiniIcon">
+              Carrito
+            </a>
+          </li>
+          <br>
+          <li class="nav-item itemMar border border-2 border-white">
+            <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+              <img src="images/icons/IconPerfil.png" class="MiniIcon">
+              Mi cuenta
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+    <!-- Contenido -->
+    <div class="container">
+      <div class="row row_1">
+        <!-- Formulario de iniciar sesión -->
+        <div class="col-6 align-self-md-center align-content-center col_form1">
+          <h3 class="text-center">Iniciar Sesión</h3>
+          <form action="insert.php" method="post" class="row g-3 needs-validation" novalidate>
+            <!-- Correo electrónico -->
+            <div class="col-12 col-xxl-6 d-block col1_login">
+              <label for="login_email" class="form-label"
+                >*Correo electrónico</label
+              >
+              <input
+                type="email"
+                class="form-control c_login_email1"
+                id="login_email"
+                value="example@outlook.com"
+                required
+              />
+              <div class="invalid-feedback">
+                El correo electrónico es incorrecto.
+              </div>
+            </div>
+            <!-- Contraseña -->
+            <div class="col-12 col-xxl-6 d-block c_login_password1">
+              <label for="login_password" class="form-label">*Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="login_password"
+                required
+              />
+              <div class="invalid-feedback">
+                Coloca una contraseña más segura.
+              </div>
+            </div>
+            <!-- Botón login -->
+            <div class="col-12 d-block text-start mt-5">
+              <button class="btn c_btn1" type="submit">iniciar sesión</button>
+            </div>
+          </form>
+        </div>
+        <!-- Formulario de registrarse -->
+        <div class="col-6 align-self-center align-self-end col_form2">
+          <h3 class="text-center">Registrarse</h3>
+          <form action="php/register.php" method="post" class="row g-3 needs-validation" novalidate>
+            <!-- Nombre -->
+            <div class="col-md-12 col-lg-6">
+              <label for="login_nombre" class="form-label">Nombre</label>
+              <input
+                type="text"
+                name="login_nombre"
+                class="form-control c_login_nombre"
+                id="login_nombre_id"
+                required
+              />
+              <div class="invalid-feedback">Escribe un nombre.</div>
+            </div>
+            <!-- Apellido -->
+            <div class="col-md-12 col-lg-6">
+              <label for="login_apellido" class="form-label">Apellido</label>
+              <input
+                type="text"
+                name="login_apellidos"
+                class="form-control c_login_apellido"
+                id="login_apellidos_id"
+                required
+              />
+              <div class="invalid-feedback">Escribe un apellido.</div>
+            </div>
+            <!-- Correo electrónico -->
+            <div class="col-md-12 col-lg-12">
+              <label for="login_email" class="form-label"
+                >*Correo electrónico</label
+              >
+              <input
+                type="email"
+                class="form-control c_login_email2"
+                name="login_correo"
+                id="login_correo_id"
+                value="example@outlook.com"
+                required
+              />
+              <div class="invalid-feedback">
+                El correo electrónico es incorrecto.
+              </div>
+            </div>
+            <!-- Contraseña -->
+            <div class="col-md-12 col-lg-6">
+              <label for="login_password" class="form-label">*Contraseña</label>
+              <input
+                type="password"
+                name="login_password"
+                class="form-control c_login_password2"
+                id="login_password_id"
+                required
+              />
+              <div class="invalid-feedback">
+                Coloca una contraseña más segura.
+              </div>
+            </div>
+            <!-- Confirmar contraseña -->
+            <div class="col-md-12 col-lg-6">
+              <label for="login_password_c" class="form-label label_confirmarc"
+                >*Confirma tu contraseña</label
+              >
+              <input
+                type="password"
+                name="login_password1"
+                class="form-control c_login_password2_c"
+                id="login_password1_id"
+                required
+              />
+              <div class="invalid-feedback">La contraseña no es la misma.</div>
+            </div>
+            <!-- Terminos y condiciones -->
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                  required
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  Acepta terminos y condiciones.
+                </label>
+                <div class="invalid-feedback">
+                  Debes aceptar los terminos y condiciones para continuar
+                </div>
+              </div>
+            </div>
+            <!-- Botón registrarse -->
+            <div class="col-12">
+              <button class="btn c_btn2" type="submit">Registrarse</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer>
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center text-center pt-3 networks">
+          <!-- fb -->
+          <a href="#" class="bg-facebook"><img data-aos="flip-left" src="images/icons/facebook.svg" /></a>
+          <!-- tw -->
+          <a href="#" class="bg-twitter mx-3"><img data-aos="flip-left" src="images/icons/twitter.svg" /></a>
+          <!-- Dbb -->
+          <a href="#" class="bg-dribble">
+            <img data-aos="flip-left" src="images/icons/dribbble.svg" />
+          </a>
+        </div>
+        <div class="
+            d-flex flex-row
+              justify-content-center
+              text-center
+              pt-2
+              text-white
+              links_
+            ">
+          <a href="index.php" class="link-light"><span>Inicio</span></a>
+          <a href="acerca.html" class="link-light px-4"><span>Acerca de</span></a>
+          <a href="contactanos.html" class="link-light"><span>Contáctanos</span></a>
+        </div>
+        <div class="row text-center pt-2 text-white">
+          <p>Aviso de privacidad | Términos y condiciones</p>
+          <p>
+            Los precios publicados en esta tienda están sujetos a cambios sin
+            previo aviso y solo son aplicables para ventas en línea.
+          </p>
+          <p>Algunos títulos están sujetos a disponibilidad.</p>
+          <p>Todos los Derechos Reservados</p>
+        </div>
+      </div>
+    </footer>
 
-        $username = trim($_POST["username"]);
-        $password = trim($_POST["password"]);
-
-    
-    // Validate credentials
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = $username;
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Store result
-                mysqli_stmt_store_result($stmt);
-                
-                // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            
-                            // Redirect user to welcome page
-                            header("location: welcome.php");
-                        } else{
-                            // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
-                        }
-                    }
-                } else{
-                    // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Close connection
-    mysqli_close($link);
-
-?>
+    <!-- Scripts -->
+    <script src="js/login.js"></script>
+    <script type="module" src="js/validate.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
