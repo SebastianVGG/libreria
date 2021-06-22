@@ -41,6 +41,9 @@
   margin: auto !important;
 }
 
+.card a{
+  margin: auto;
+}
 .card img{
   width: 8rem;
   height: 13rem;

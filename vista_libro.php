@@ -1,3 +1,33 @@
+<?php
+
+include("php/config.php");
+
+if (isset($_GET["id"]))
+$id_get = $_GET["id"];
+else{
+  $page = 0;
+}
+
+$sql = "SELECT * FROM libro WHERE id = $id_get";
+$query = $link->query($sql);
+$row = $query->fetch_assoc();
+$get_id_autor = $row['id_autor'];
+$get_autor = $link->query("SELECT * FROM autor WHERE id = $get_id_autor");
+
+$url = $row['img'];
+$titulo = $row['titulo'];
+$autor = $get_autor->fetch_all(MYSQLI_ASSOC);
+$precio = $row['precio'];
+$isbn = $row['isbn'];
+$idioma = $row['idioma'];
+$paginas = $row['paginas'];
+$descripcion = $row['descripcion'];
+$formato = $row['formato'];
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -198,47 +228,37 @@
       <div class="row">
         <div class="col">
           <img
-            src="https://images-na.ssl-images-amazon.com/images/I/416T1Pzzw5L._SY344_BO1,204,203,200_QL70_ML2_.jpg"
+            src="<?=$url?>"
           />
         </div>
         <div class="col">
-          <div><h3>ESTE ES EL TITULO</h3></div>
+          <div><h3><?=$titulo?></h3></div>
           <div class="autor">
             <span class="autor">Autor: </span
-            ><span class="autor_nombre fw-bold">Nombre</span>
+            ><span class="autor_nombre fw-bold"><?=$autor[0]['nombre']?></span>
           </div>
         </div>
         <div class="col">
-          <div class="precio"><span>PRECIO: </span>$0.00</div>
+          <div class="precio"><span>PRECIO: </span>$<?=$precio?></div>
           <div class="add-carrito">AGREGAR A CARRITO</div>
         </div>
       </div>
       <div class="row">
         <h3 class="text-center">Información adicional</h3>
         <div class="col mt-3 icon-col">
-          <div><img src="images/icons/isbn.svg" /> SKU</div>
-          <div class="mt-4"><img src="images/icons/pagina.svg" /> paginas</div>
+          <div><img src="images/icons/isbn.svg" /><?=$isbn?></div>
+          <div class="mt-4"><img src="images/icons/pagina.svg" /><?=$paginas?> páginas.</div>
         </div>
         <div class="col mt-3 icon-col">
-          <div><img src="images/icons/idioma.svg" /> idioma</div>
-          <div class="mt-4"><img src="images/icons/calendario.svg" /> year</div>
+          <div><img src="images/icons/idioma.svg" /><?=$idioma?></div>
+          <div class="mt-4"><img src="images/icons/calendario.svg" />AÑO PENDIENTE</div>
         </div>
       </div>
       <div class="row mt-4">
         <h3>Sinopsis</h3>
         <div class="col">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat
-            error suscipit amet, pariatur deleniti quasi nam voluptas quos
-            consequatur ullam aut quia esse aspernatur! Corporis minus sint
-            libero iusto commodi. Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Veritatis quis esse odio accusantium amet ratione
-            autem ducimus quidem dolorem quod, qui sapiente, odit nam enim quam
-            vitae adipisci quia voluptates. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Et minima, commodi itaque, accusamus
-            sequi facilis perferendis repudiandae, ea voluptas accusantium
-            aperiam quibusdam explicabo fuga? Illum est recusandae
-            exercitationem nisi. Mollitia.
+          <?=$descripcion?>
           </p>
         </div>
       </div>

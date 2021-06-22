@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/categoria-terror.css" />
+  <link rel="stylesheet" href="css/categoria.css" />
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/loader.css">
   <title>Document</title>
@@ -46,7 +46,7 @@
               Niños
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Colorear</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=infantil">Colorear</a></li>
               <li><a class="dropdown-item" href="#">Comic</a></li>
               <li><a class="dropdown-item" href="#">Ilustrados</a></li>
             </ul>
@@ -56,9 +56,9 @@
               Adolescentes
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Ciencia ficción</a></li>
-              <li><a class="dropdown-item" href="#">Romance</a></li>
-              <li><a class="dropdown-item" href="categoria-terror.php">Terror</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ciencia_ficcion">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=romance">Romance</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=terror">Terror</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown itemMar">
@@ -165,7 +165,7 @@
 
   <!-- Scripts -->
   <script src="js/jquery-3.6.0.js"></script>
-  <script src="js/categoria-terror.js"></script>
+  <script src="js/categoria.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 </body>
