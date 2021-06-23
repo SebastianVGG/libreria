@@ -1,6 +1,4 @@
-import * as validate from '/js/validate.js';
-
-
+$(document).ready(function(){
 const nombre = $("#login_nombre_id")[0];
 const apellidos = $("#login_apellidos_id")[0];
 const correo = $("#login_correo_id")[0];
@@ -30,3 +28,5 @@ const password1 = $("#login_password1_id")[0];
         }, false)
       });
   })()
+
+});

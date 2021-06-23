@@ -14,16 +14,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link rel="stylesheet" href="css/login.css" />
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <title>Document</title>
   </head>
   <body>
   <!-- nav -->
   <div>
     <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
-      <img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png"/>
+      <a href="../index.php"><img class="animate__animated animate__backInRight animate__slow" src="../images/icons/LogoBGO.png" /></a>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-light mx-2" type="submit">Search</button>
@@ -42,18 +42,8 @@
               Libros
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Novedades</a></li>
-              <li><a class="dropdown-item" href="#">Los mas leidos</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown itemMar">
-            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Niños
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Colorear</a></li>
-              <li><a class="dropdown-item" href="#">Comic</a></li>
-              <li><a class="dropdown-item" href="#">Ilustrados</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=novedades">Novedades</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=novedades_ebook">Novedades Ebooks</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown itemMar">
@@ -61,35 +51,51 @@
               Adolescentes
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Ciencia ficción</a></li>
-              <li><a class="dropdown-item" href="#">Romance</a></li>
-              <li><a class="dropdown-item" href="#">Terror</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=terror">Terror</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ciencia_ficcion">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=romance">Romance</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=fantasia">Fantasía</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=clasico">Clásicos</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=accion">Acción</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown itemMar">
             <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Escolares
+              Ebooks
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Jardin de niños</a></li>
-              <li><a class="dropdown-item" href="#">Primaria</a></li>
-              <li><a class="dropdown-item" href="#">Secundaria</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=novedades_ebook">Novedades</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_terror">Terror</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_ciencia_ficcion">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_romance">Romance</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_fantasia">Fantasía</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_clasico">Clásicos</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_accion">Acción</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Otros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="categoria.php?categoria=no_ficcion">No ficción</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=novelas_cuentos">Novelas y Cuentos</a></li>
             </ul>
           </li>
         </ul>
       </div>
       <div class="d-inline">
-        <ul class="navbar-nav navbar-nav-scroll d-flex-inline"style="text-align:right">
+        <ul class="navbar-nav navbar-nav-scroll d-flex-inline" style="text-align:right">
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
-              <img src="images/icons/IconCarrito.png" class="MiniIcon">
+            <a class="nav-link text-light text-center" href="carrito.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+              <img src="../images/icons/IconCarrito.png" class="MiniIcon">
               Carrito
             </a>
           </li>
           <br>
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
-              <img src="images/icons/IconPerfil.png" class="MiniIcon">
+            <a class="nav-link text-light text-center" href="login.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+              <img src="../images/icons/IconPerfil.png" class="MiniIcon">
               Mi cuenta
             </a>
           </li>
@@ -243,12 +249,12 @@
       <div class="container-fluid">
         <div class="row d-flex justify-content-center text-center pt-3 networks">
           <!-- fb -->
-          <a href="#" class="bg-facebook"><img data-aos="flip-left" src="images/icons/facebook.svg" /></a>
+          <a href="#" class="bg-facebook"><img data-aos="flip-left" src="../images/icons/facebook.svg" /></a>
           <!-- tw -->
-          <a href="#" class="bg-twitter mx-3"><img data-aos="flip-left" src="images/icons/twitter.svg" /></a>
+          <a href="#" class="bg-twitter mx-3"><img data-aos="flip-left" src="../images/icons/twitter.svg" /></a>
           <!-- Dbb -->
           <a href="#" class="bg-dribble">
-            <img data-aos="flip-left" src="images/icons/dribbble.svg" />
+            <img data-aos="flip-left" src="../images/icons/dribbble.svg" />
           </a>
         </div>
         <div class="
@@ -259,9 +265,9 @@
               text-white
               links_
             ">
-          <a href="index.php" class="link-light"><span>Inicio</span></a>
-          <a href="acerca.html" class="link-light px-4"><span>Acerca de</span></a>
-          <a href="contactanos.html" class="link-light"><span>Contáctanos</span></a>
+          <a href="../index.php" class="link-light"><span>Inicio</span></a>
+          <a href="../acerca.html" class="link-light px-4"><span>Acerca de</span></a>
+          <a href="../contactanos.html" class="link-light"><span>Contáctanos</span></a>
         </div>
         <div class="row text-center pt-2 text-white">
           <p>Aviso de privacidad | Términos y condiciones</p>
@@ -276,8 +282,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/login.js"></script>
-    <script type="module" src="js/validate.js"></script>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/login.js"></script>
+    <script type="module" src="../js/validate.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

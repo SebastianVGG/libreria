@@ -18,9 +18,8 @@ $(document).ready(function(){
     loadMoreData();
     function loadMoreData(page){
       var categoria = getUrlParameter('categoria');
-      console.log(categoria)
       $.ajax({
-        url : "php/fetch_data.php?categoria="+categoria,
+        url : "fetch_data.php?categoria="+categoria,
         type: "POST",
         cache:false,
         data:{page_no:page},

@@ -4,6 +4,9 @@
 include("config.php");
 
 $limit = 8;
+$formato_ebook = false;
+$novedades = false;
+$novedades_ebook = false;
 
 	if (isset($_POST['page_no'])) {
 		$page = $_POST['page_no'];
@@ -14,31 +17,77 @@ $limit = 8;
 	if (isset($_GET['categoria'])) 
 		$categoria_get = $_GET['categoria'];
 
-if($categoria_get == "terror")
-    $id_categoria = 1;
+switch ($categoria_get) {
+    case "terror":
+        $id_categoria = 1;
+        break;
+    case "ciencia_ficcion":
+        $id_categoria = 2;
+        break;
+    case "romance":
+        $id_categoria = 3;
+        break;
+    case "fantasia":
+        $id_categoria = 4;
+        break;
+    case "clasico":
+        $id_categoria = 5;
+        break;
+    case "accion":
+        $id_categoria = 6;
+        break;
+    case "no_ficcion":
+        $id_categoria = 7;
+        break;
+    case "novelas_cuentos":
+        $id_categoria = 8;
+        break;
 
-    if($categoria_get == "ciencia_ficcion")
-    $id_categoria = 2;
+    case "ebook_terror":
+        $id_categoria = 1;
+        $formato_ebook = true; 
+        break;
+    case "ebook_ciencia_ficcion":
+        $id_categoria = 2;
+        $formato_ebook = true; 
+        break;
+    case "ebook_romance":
+        $id_categoria = 3;
+        $formato_ebook = true; 
+        break;
+    case "ebook_fantasia":
+        $id_categoria = 4;
+        $formato_ebook = true; 
+        break;
+    case "ebook_clasico":
+        $id_categoria = 5;
+        $formato_ebook = true; 
+        break;
+    case "ebook_accion":
+        $id_categoria = 6;
+        $formato_ebook = true; 
+        break;
 
-    if($categoria_get == "infantil")
-    $id_categoria = 3;
+    case "novedades":
+        $novedades = true;
+        break;
+    case "novedades_ebook":
+        $novedades_ebook = true;
+        break;
+}
 
-    if($categoria_get == "drama")
-    $id_categoria = 4;
-
-    if($categoria_get == "novela")
-    $id_categoria = 5;
-
-    if($categoria_get == "romance")
-    $id_categoria = 6;
-
-// selecting posts
-$sql = "SELECT * FROM libro where id_categoria = $id_categoria limit $page, $limit";
+if($novedades)
+    $sql = "SELECT * FROM libro ORDER BY id DESC limit 0, $limit";
+elseif($novedades_ebook)
+    $sql = "SELECT * FROM libro WHERE formato = 'ebook' ORDER BY id DESC limit 0, $limit";
+elseif($formato_ebook)
+    $sql = "SELECT * FROM libro where id_categoria = $id_categoria and formato = 'ebook' limit  $page, $limit";
+    
+else
+    $sql = "SELECT * FROM libro where id_categoria = $id_categoria limit $page, $limit";
 
 
 $query = $link->query($sql);
-
-
 if ($query->num_rows > 0) {
     $html = '';
 while($row = $query->fetch_assoc()){
@@ -64,9 +113,15 @@ while($row = $query->fetch_assoc()){
     $html .='</div>';
 
 }
-$html .= "<div id='pagination'>
-<button class='btn btn-success loadbtn' data-id='{$last_id}'>Load More</button></td>
-</div>";
-echo $html;
+
+if($novedades or $novedades_ebook){
+    echo $html;
+}else{
+    $html .= "<div id='pagination'>
+    <button class='btn btn-success loadbtn ' data-id='{$last_id}'>Ver más contenido</button>
+    </div>";
+    echo $html;
+}
+
 }
 ?>

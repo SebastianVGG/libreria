@@ -81,7 +81,7 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
   <!-- nav -->
   <div>
     <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
-      <img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png" />
+      <a href="index.php"><img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png" /></a>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-light mx-2" type="submit">Search</button>
@@ -100,18 +100,8 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
               Libros
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Novedades</a></li>
-              <li><a class="dropdown-item" href="#">Los mas leidos</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown itemMar">
-            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Niños
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Colorear</a></li>
-              <li><a class="dropdown-item" href="#">Comic</a></li>
-              <li><a class="dropdown-item" href="#">Ilustrados</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=novedades">Novedades</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=novedades_ebook">Novedades Ebooks</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown itemMar">
@@ -119,19 +109,35 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
               Adolescentes
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Ciencia ficción</a></li>
-              <li><a class="dropdown-item" href="#">Romance</a></li>
-              <li><a class="dropdown-item" href="categoria.php?categoria=terror">Terror</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=terror">Terror</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=ciencia_ficcion">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=romance">Romance</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=fantasia">Fantasía</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=clasico">Clásicos</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=accion">Acción</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown itemMar">
             <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Escolares
+              Ebooks
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Jardin de niños</a></li>
-              <li><a class="dropdown-item" href="#">Primaria</a></li>
-              <li><a class="dropdown-item" href="#">Secundaria</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=novedades_ebook">Novedades</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_terror">Terror</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_ciencia_ficcion">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_romance">Romance</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_fantasia">Fantasía</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_clasico">Clásicos</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_accion">Acción</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Otros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=no_ficcion">No ficción</a></li>
+              <li><a class="dropdown-item" href="php/categoria.php?categoria=novelas_cuentos">Novelas y Cuentos</a></li>
             </ul>
           </li>
         </ul>
@@ -139,14 +145,14 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
       <div class="d-inline">
         <ul class="navbar-nav navbar-nav-scroll d-flex-inline" style="text-align:right">
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="#" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+            <a class="nav-link text-light text-center" href="php/carrito.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
               <img src="images/icons/IconCarrito.png" class="MiniIcon">
               Carrito
             </a>
           </li>
           <br>
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="login.html" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+            <a class="nav-link text-light text-center"  href="php/login.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
               <img src="images/icons/IconPerfil.png" class="MiniIcon">
               Mi cuenta
             </a>

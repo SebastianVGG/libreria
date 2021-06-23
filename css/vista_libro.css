@@ -2,14 +2,20 @@
 .autor_nombre{
   text-decoration-line: underline;
 }
+.img_libro{
+  width: 18rem;
+}
 
 .autor_nombre:hover{
   cursor: pointer;
   color: crimson;
 }
 
+.col_precio{
+  padding-top: 7rem;
+}
 .add-carrito{
-    margin-top: 10rem;
+    margin-top: 4rem;
 }
 
 .icon-col div{
@@ -21,3 +27,57 @@
     width: 4rem;
     height: 2rem;
 }
+
+@media only screen and (max-width: 992px) and (min-width: 769px) {
+  
+  .col_titulo{
+    height: 10rem;
+  }
+  
+.col_precio{
+  display: flex;
+  position: absolute;
+  margin-left: 23rem;
+  margin-top: 7rem;
+  width: 20rem;
+}
+.precio{
+  display: flex;
+  position: absolute;
+}
+.add-carrito{
+  display: flex;
+  position: absolute;
+  margin-top: 5rem;
+}
+
+.row_info{
+  margin-top: 5rem;
+}
+
+}  
+@media only screen and (max-width: 768px) and (min-width: 500px) {
+  
+.titulo_{
+  margin-top: 2rem;
+}
+
+.autor{
+  margin-top: 1rem;
+}
+
+.img_libro{
+margin-left: 25%;
+}
+
+
+.precio{
+  margin: auto;
+}
+.add-carrito{
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+}  
