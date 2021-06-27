@@ -1,0 +1,39 @@
+.card{
+    width: 18rem;
+}
+.row_principal{
+    border-style: solid;
+    border-width:10%;
+    height: 30rem;
+    width: 50rem;
+    margin: auto;
+    margin-top: 7rem;
+    margin-bottom: 10rem;
+}
+.row_principal .card{
+    margin: auto;
+}
+
+.card img{
+    margin: auto;
+    width: 10rem;
+    height: 10rem;
+}
+
+.col_btn section{
+    width: 8rem;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.card-body div{
+   width: 45%;
+    margin: auto;
+}
+.card-body div button{
+    margin: auto;
+}
+
+form div button .btn-secondary{
+    margin: ;
+}

@@ -1,5 +1,6 @@
 <?php
 include("php/config.php");
+
 $today = date('N');
 
 switch ($today) {
@@ -48,6 +49,7 @@ $limit = 9;
 $sql = "SELECT * FROM libro where id_categoria = 1 limit 0, $limit";
 $query = $link->query($sql);
 $row = $query->fetch_all(MYSQLI_ASSOC);
+
 
 
 ?>
@@ -152,7 +154,7 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
           </li>
           <br>
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center"  href="php/login.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+            <a class="nav-link text-light text-center"  href="php/perfil.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
               <img src="images/icons/IconPerfil.png" class="MiniIcon">
               Mi cuenta
             </a>

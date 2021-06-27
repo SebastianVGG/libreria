@@ -2,6 +2,7 @@
 
 include("config.php");
 
+
 if (isset($_GET["id"]))
 $id_get = $_GET["id"];
 else{
