@@ -9,8 +9,6 @@ if(!isset($_SESSION['correo']))
 }else{
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
   <head>

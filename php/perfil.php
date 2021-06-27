@@ -179,15 +179,170 @@ if (!isset($_SESSION['correo'])) {
           </div>
         </section></div>
         <div class="col col_btn"><section><a href="session/logout.php"><button class="btn btn-info btn_logout" type="submit"> Cerrar Sesión </button></a></section></div>
+        <div class="col col_btn"><section><div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Agregar Libros</button></div></section></div>
+        <div class="col col_btn"><section><div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update">Editar Libros</button></div></section></div>
+        <div class="col col_btn"><section><div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">Eliminar libros</button></div></section></div>
       </div>
       
     </div>
 
+              <!-- Editar Perfil -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Editar cuenta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post" class="form_perfil" novalidate>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Nombre</label>
+                <input type="text" name="nombre_form" value="<?= $_SESSION['nombre'] ?>" class="form-control" id="nombre_id" required>
+                <div class="invalid-feedback">Escribe un nombre.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Apellidos</label>
+                <input type="text" name="apellidos_form" value="<?= $_SESSION['apellidos'] ?>" class="form-control" id="apellidos_id" required>
+                <div class="invalid-feedback">Escribe tus apellidos.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Correo</label>
+                <input type="email" name="correo_form" value="<?= $_SESSION['correo'] ?>" class="form-control" id="correo_id" required>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Password</label>
+                <input type="password" name="pass_form" class="form-control" id="pass_id" required>
+              </div>
+              <div>
+              <button name="btn_editar" type="submit" class="btn btn-primary">Guardar</button>
+              <button type="button"  class="btn btn-secondary btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+              <!-- Agregar Libros -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="add" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="add">Agregar Libros</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post" class="form_perfil" novalidate>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Titulo</label>
+                <input type="text" name="add_titulo" class="form-control" id="nombre_id" required>
+                <div class="invalid-feedback">Escribe un nombre.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">ISBN</label>
+                <input type="text" name="add_isbn" class="form-control" id="nombre_id" required>
+                <div class="invalid-feedback">Escribe un nombre.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Idioma</label>
+                <input type="text" name="add_idioma" class="form-control" id="nombre_id" required>
+                <div class="invalid-feedback">Escribe un nombre.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Páginas</label>
+                <input type="text" name="add_paginas" class="form-control" id="nombre_id" required>
+                <div class="invalid-feedback">Escribe un nombre.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Fecha</label>
+                <input type="text" name="add_fecha" class="form-control" id="apellidos_id" required>
+                <div class="invalid-feedback">Escribe tus apellidos.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Descripción</label>
+                <input type="text" name="add_descripcion" class="form-control" id="apellidos_id" required>
+                <div class="invalid-feedback">Escribe tus apellidos.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Formato</label>
+                <input type="text" name="add_formato" class="form-control" id="apellidos_id" required>
+                <div class="invalid-feedback">Escribe tus apellidos.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Correo</label>
+                <input type="email" name="correo_form" class="form-control" id="correo_id" required>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Password</label>
+                <input type="password" name="pass_form" class="form-control" id="pass_id" required>
+              </div>
+              <div>
+              <button name="btn_editar" type="submit" class="btn btn-primary">Guardar</button>
+              <button type="button"  class="btn btn-secondary btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+              <!-- Editar Libros -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="update" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="update">Editar cuenta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post" class="form_perfil" novalidate>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Nombre</label>
+                <input type="text" name="nombre_form" value="<?= $_SESSION['nombre'] ?>" class="form-control" id="nombre_id" required>
+                <div class="invalid-feedback">Escribe un nombre.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Apellidos</label>
+                <input type="text" name="apellidos_form" value="<?= $_SESSION['apellidos'] ?>" class="form-control" id="apellidos_id" required>
+                <div class="invalid-feedback">Escribe tus apellidos.</div>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Correo</label>
+                <input type="email" name="correo_form" value="<?= $_SESSION['correo'] ?>" class="form-control" id="correo_id" required>
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label form-label">Password</label>
+                <input type="password" name="pass_form" class="form-control" id="pass_id" required>
+              </div>
+              <div>
+              <button name="btn_editar" type="submit" class="btn btn-primary">Guardar</button>
+              <button type="button"  class="btn btn-secondary btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+              <!-- Eliminar Libros -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="delete" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delete">Editar cuenta</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">

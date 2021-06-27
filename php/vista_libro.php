@@ -163,7 +163,7 @@ $formato = $row['formato'];
         </div>
         <div class="col-12 col-lg-4 col_precio">
           <div class="precio text-center"><span class="fw-bold">PRECIO: </span>$<?=$precio?></div>
-          <div class="add-carrito text-center"><span class="fw-bold">AGREGAR A CARRITO</span></div>
+          <div class="add-carrito text-center"><input type="button" class="btn btn-success" value="Agregar a carrito"></div>
         </div>
       </div>
       <div class="row row_info">

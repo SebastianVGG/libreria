@@ -49,15 +49,7 @@ $limit = 9;
 $sql = "SELECT * FROM libro where id_categoria = 1 limit 0, $limit";
 $query = $link->query($sql);
 $row = $query->fetch_all(MYSQLI_ASSOC);
-
-
-
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
