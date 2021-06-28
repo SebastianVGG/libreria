@@ -95,6 +95,44 @@ if (!isset($_SESSION['correo'])) {
     }
   }
   // ACTUALIZAR LIBROS PHP
+  if (isset($_POST['btn_upd_save']))
+    if (isset($_POST['upd_titulo']) && isset($_POST['upd_isbn']) && isset($_POST['upd_idioma']) && isset($_POST['upd_paginas']) && isset($_POST['upd_fecha']) && isset($_POST['upd_descripcion']) && isset($_POST['select_formato_upd']) && isset($_POST['upd_img']) && isset($_POST['upd_precio']) && isset($_POST['select_autor_upd']) && isset($_POST['select_categoria_upd'])) {
+      $titulo = $isbn = $idioma = $paginas = $fecha = '';
+      $descripcion = $formato = $img = $precio = $autor = $categoria = '';
+      $titulo = $_POST['upd_titulo'];
+      $isbn = $_POST['upd_isbn'];
+      $idioma = $_POST['upd_idioma'];
+      $paginas = $_POST['upd_paginas'];
+      $fecha = $_POST['upd_fecha'];
+      $descripcion = $_POST['upd_descripcion'];
+      $formato = $_POST['select_formato_upd'];
+      $img = $_POST['upd_img'];
+      $precio = $_POST['upd_precio'];
+      $autor = $_POST['select_autor_upd'];
+      $categoria = $_POST['select_categoria_upd'];
+      $sql = "UPDATE libro SET  id_autor=".intval($autor).", id_categoria= ".intval($categoria).", titulo = '$titulo', isbn = '$isbn', idioma = '$idioma', paginas = '$paginas', fecha = '$fecha', descripcion = '$descripcion', formato = '$formato', img = '$img', precio = ".floatval($precio)." WHERE id = " . intval($_POST['btn_upd_save']);
+      if (mysqli_query($link, $sql)) {
+        
+        $html = '';
+        $html .= '<div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Se actualizo el libro correctamente. </strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        $_POST['btn_select_update'] = null;
+      } else {
+        $html = '';
+        $html .= '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>'.$autor.' '.$categoria.' '.$_POST['btn_upd_save'].'Error en el servidor. '.mysqli_error($link).' </strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+      }
+    } else {
+      $html = '';
+      $html .= '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Valores invalidos. </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
+    }
 
 
 
@@ -242,7 +280,9 @@ if (!isset($_SESSION['correo'])) {
         </div>
         <div class="col">
           <div class="row row_btn_cerrar">
-            <section><div><a href="session/logout.php"><button class="btn btn-info btn_logout" type="submit"> Cerrar Sesión </button></a></div></section>
+            <section>
+              <div><a href="session/logout.php"><button class="btn btn-info btn_logout" type="submit"> Cerrar Sesión </button></a></div>
+            </section>
           </div>
           <div class="row row_btn_add">
             <section>
@@ -420,7 +460,7 @@ if (!isset($_SESSION['correo'])) {
     </div>
     <!-- ELIMINAR y editar Libros -->
     <div class="modal fade" id="update" tabindex="-1" aria-labelledby="update" aria-hidden="true">
-      <div class="modal-dialog dialog_update">
+      <div class="modal-dialog modal-dialog-scrollable dialog_update">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="update">Editar o eliminar libros</h5>
@@ -571,7 +611,7 @@ if (!isset($_SESSION['correo'])) {
           </div>
           <div class="mb-3">
             <select name="select_autor_upd" class="form-select" id="select_" required>
-              <option selected value="<?= $autor[0]['nombre'] ?>"><?= $autor[0]['nombre'] ?>
+              <option selected value="<?= $autor[0]['id'] ?>"><?= $autor[0]['nombre'] ?>
               </option>
               <?php
               $sql = "SELECT * FROM autor";
@@ -592,7 +632,7 @@ if (!isset($_SESSION['correo'])) {
           </div>
           <div class="mb-3">
             <select name="select_categoria_upd" class="form-select" id="select_" required>
-              <option selected value="<?= $categoria[0]['nombre'] ?>">
+              <option selected value="<?= $categoria[0]['id_primary_categoria'] ?>">
                 <?= $categoria[0]['nombre'] ?>
               </option>
               <?php
@@ -611,7 +651,7 @@ if (!isset($_SESSION['correo'])) {
             <div class="invalid-feedback">Elige Categoria.</div>
           </div>
           <div>
-            <button name="btn_add" type="submit" class="btn btn-primary mb-2">Guardar</button>
+            <button name="btn_upd_save" type="submit" value="<?= $id_select_update?>" class="btn btn-primary mb-2">Guardar</button>
           </div>
         </form>
       </section>
