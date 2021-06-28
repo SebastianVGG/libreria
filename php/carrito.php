@@ -8,6 +8,8 @@ if(!isset($_SESSION['correo']))
   echo $sesion;
 }else{
 
+include("config.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -117,48 +119,52 @@ if(!isset($_SESSION['correo']))
             <th scope="col" class="tdCentrado">Eliminar</th>
           </thead>
           <tbody>
-            <div data-aos="fade-right">
-              <tr>
-                <td class="tdCentrado">
-                  <div class="row">
-                    <div class="col-3"><img src="../images/HPOrdenDelFenix.jpg" class="LibroPortada"></div>
-                    <div class="col"><h5>Harry Potter y la Orden del Fenix</h5><br><h6>Autor: J.K. Rowling</h6></div>
-                  </div>
-                </td>
-                <td class="tdCentrado">$500</td>
-                <td class="tdCentrado"><input type="number" value="1" class="InputPequeño"></td>
-                <td class="tdCentrado">$1500</td>
-                <td class="tdCentrado"><input type="button" class="btn btn-close"></td>
-              </tr>
-            </div>
-            <div data-aos="fade-right">
-              <tr>
-                <td class="tdCentrado">
-                  <div class="row">
-                    <div class="col-3"><img src="images/HPPrisioneroDeAzkaban.png" class="LibroPortada"></div>
-                    <div class="col"><h5>Harry Potter y el prisionero de Azkaban</h5><br><h6>Autor: J.K. Rowling</h6></div>
-                  </div>
-                </td>
-                <td class="tdCentrado">$500</td>
-                <td class="tdCentrado"><input type="number" value="1" class="InputPequeño"></td>
-                <td class="tdCentrado">$1500</td>
-                <td class="tdCentrado"><input type="button" class="btn btn-close"></td>
-              </tr>
-            </div>
-            <div data-aos="fade-right">
-              <tr data-aos="zoom-in-right">
-                <td class="tdCentrado">
-                  <div class="row">
-                    <div class="col-3"><img src="images/HPReliquiasDeLaMuerte.jpg" class="LibroPortada"></div>
-                    <div class="col"><h5>Harry Potter y las reliquias de la muerte</h5><br><h6>Autor: J.K. Rowling</h6></div>
-                  </div>
-                </td>
-                <td class="tdCentrado">$500</td>
-                <td class="tdCentrado"><input type="number" value="1" class="InputPequeño"></td>
-                <td class="tdCentrado">$1500</td>
-                <td class="tdCentrado"><input type="button" class="btn btn-close"></td>
-              </tr>
-            </div>
+            <?php
+              $idUser = $_SESSION['id_'];
+              $sql="SELECT * from carrito WHERE id_usuario = $idUser";
+              $result=mysqli_query($link,$sql);
+              $subtotal = 0;
+              $total = 0;
+              while($mostrar=mysqli_fetch_array($result)){
+            ?>
+            <tr>
+              <td class="tdCentrado">
+                <div class="row">
+                  <?php 
+                  $idCar=$mostrar['id'];
+                  $idLib=$mostrar['id_libro'];
+                  $sqlInfoLib="SELECT * from libro WHERE id = $idLib";
+                  $resultInfoLib=mysqli_query($link,$sqlInfoLib);
+                  $mostrarInfoLib = mysqli_fetch_array($resultInfoLib);
+                  $idAut=$mostrarInfoLib['id_autor'];
+                  $sqlInfoAut="SELECT * from autor WHERE id = $idAut";
+                  $resultInfoAut=mysqli_query($link,$sqlInfoAut);
+                  $mostrarInfoAut = mysqli_fetch_array($resultInfoAut);
+                  ?>
+                  <div class="col-3"><img src="<?= $mostrarInfoLib['img']?>" class="LibroPortada"></div>
+                  <div class="col"><h5><?= $mostrarInfoLib['titulo']?></h5><br><h6>Autor: <?= $mostrarInfoAut['nombre']?> <?= $mostrarInfoAut['apellidos']?></h6></div>
+                </div>
+              </td>
+              <td class="tdCentrado">$<?php echo $mostrarInfoLib['precio'] ?></td>
+              <td class="tdCentrado"><?php echo $mostrar['cantidad'] ?></td>
+              <td class="tdCentrado">$<?php echo ($mostrar['cantidad'] * $mostrarInfoLib['precio']) ?></td>
+              <td class="tdCentrado"><button id="elim" name="elim" class="btn btn-danger" onclick="quitarDeCarrito(<?php echo $mostrar['id']?>)">X</button></td>
+            </tr>
+            <?php
+              $subtotal = $subtotal + ($mostrar['cantidad'] * $mostrarInfoLib['precio']);
+              }
+              mysqli_close($link);
+              if($subtotal >= 1000 && $subtotal < 5000){
+                $descuerto = intval($subtotal/10);
+                $total = $subtotal - $descuerto;
+              }else if($subtotal >= 5000 && $subtotal < 10000){
+                $descuerto = intval($subtotal/15);
+                $total = $subtotal - $descuerto;
+              }else if($subtotal >= 10000){
+                $descuerto = intval($subtotal/20);
+                $total = $subtotal - $descuerto;
+              }
+            ?>
           </tbody>
         </table>
       </div>
@@ -171,12 +177,17 @@ if(!isset($_SESSION['correo']))
             <h4>Total</h4>
           </div>
           <div class="col">
-            <h5 class="text-secondary" aligntext="right">$4500</h5>
-            <h5 class="text-secondary" aligntext="right">$500</h5>
-            <h4 aligntext="right">$4000</h4>
+            <h5 class="text-secondary" aligntext="right">$<?= $subtotal?></h5>
+            <h5 class="text-secondary" aligntext="right">$<?= $descuerto?></h5>
+            <h4 aligntext="right">$<?= $total?></h4>
           </div>
         </div>
         <input type="button" class="btn btn-primary w-75 my-5 py-3" value="Realizar pago">
+        <h5 class="text-primary">DESCUENTOS</h5>
+        <p>Descuento del 10% en compras superiores a $1,000.<br>
+          Descuento del 15% en compras superiores a $5,000.<br>
+          Descuento del 20% en compras superiores a $10,000.<br>
+          Los descuentos NO son acumulables.</p>
         <h5 class="text-primary">POLITICA DE DEVOLUCIONES</h5>
         <p>Tienes hasta 20 días para devolver tu producto por cualquier motivo. Para que sea valido este no debe haber sido manipulado.</p>
         <h5 class="text-primary">ENVIO Y ENTREGA</h5>
@@ -219,6 +230,7 @@ if(!isset($_SESSION['correo']))
         </div>
       </div>
     </footer>
+    <script src="../js/jquery-3.6.0.js"></script>
     <script src="../js/carrito.js"></script>
     </body>
 </html>
