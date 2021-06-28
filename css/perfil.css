@@ -13,17 +13,57 @@
 .row_principal .card{
     margin: auto;
 }
+.modal-body {
+    overflow-x: auto;
+  }
+  .dialog_update {
+    max-width: 50rem; 
+  }
 
+  .form_upd {
+    margin: auto;
+    width: 30rem;
+  }
+  .form_upd mb-3{
+      margin: auto;
+  }
+
+  .sct_upd{
+    margin: auto;
+      width: 50rem;
+      border-style: solid;
+      border-radius: 5rem;
+      margin-top: -8rem;
+  }
 .card img{
     margin: auto;
     width: 10rem;
     height: 10rem;
 }
 
-.col_btn section{
-    width: 8rem;
+.row_btn_cerrar{
+    width: 12rem;
     margin: auto;
     margin-top: 5rem;
+}
+.row_btn_cerrar div a{
+    margin: auto;
+}
+.row_btn_add{
+    width: 12rem;
+    margin: auto;
+    margin-top: 1rem;
+}
+.row_btn_add section div button{
+    margin: auto;
+}
+.row_btn_upd{
+    width: 15rem;
+    margin: auto;
+    margin-top: 1rem;
+}
+.row_btn_upd section div button{
+    margin: auto;
 }
 
 .card-body div{
@@ -34,6 +74,3 @@
     margin: auto;
 }
 
-form div button .btn-secondary{
-    margin: ;
-}
