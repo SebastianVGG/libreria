@@ -176,11 +176,14 @@ include("config.php");
             <h5 class="text-secondary">  Descuento</h5>
             <h4>Total</h4>
           </div>
+          <?php if(isset($subtotal) && isset($descuerto) && isset($total)) { ?>
           <div class="col">
             <h5 class="text-secondary" aligntext="right">$<?= $subtotal?></h5>
             <h5 class="text-secondary" aligntext="right">$<?= $descuerto?></h5>
             <h4 aligntext="right">$<?= $total?></h4>
           </div>
+          <?php } ?>
+        
         </div>
         <input type="button" class="btn btn-primary w-75 my-5 py-3" value="Realizar pago">
         <h5 class="text-primary">DESCUENTOS</h5>
