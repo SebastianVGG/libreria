@@ -118,7 +118,7 @@ if($novedades or $novedades_ebook){
     echo $html;
 }else{
     $html .= "<div id='pagination'>
-    <button class='btn btn-success loadbtn ' data-id='{$last_id}'>Ver más contenido</button>
+    <button class='btn loadbtn ' data-id='{$last_id}'>Ver más contenido</button>
     </div>";
     echo $html;
 }

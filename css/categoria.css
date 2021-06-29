@@ -69,6 +69,26 @@ color: crimson;
   text-decoration-line: underline;
 }
 
+.loadbtn{
+  float: right;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  color: white;
+  background-color: #555555;
+  border:0.16em solid;
+  border-radius:2em;
+}
+
+.loadbtn:active{
+  animation: rubberBand;
+  animation-duration: 1s;
+}
+.loadbtn:hover{
+  border-color: orange;
+  color: white;
+}
+
+
 .autor_nombre:hover{
   cursor: pointer;
   color: crimson;
