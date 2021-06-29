@@ -160,7 +160,10 @@ include("config.php");
               $subtotal = $subtotal + ($mostrar['cantidad'] * $mostrarInfoLib['precio']);
               }
               mysqli_close($link);
-              if($subtotal >= 1000 && $subtotal < 5000){
+              if($subtotal < 1000){
+                $descuerto = intval($subtotal/5);
+                $total = $subtotal - $descuerto;
+              }else if($subtotal >= 1000 && $subtotal < 5000){
                 $descuerto = intval($subtotal/10);
                 $total = $subtotal - $descuerto;
               }else if($subtotal >= 5000 && $subtotal < 10000){
