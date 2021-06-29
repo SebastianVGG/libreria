@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -12,9 +13,12 @@ $(document).ready(function(){
       .forEach(function (form) {
         form.addEventListener('submit', function (event) {
           if (!form.checkValidity()) {
+
             event.preventDefault()
             event.stopPropagation()
+
           }else{
+
             event.preventDefault()
             event.stopPropagation()
             let url1 = "../index.php";

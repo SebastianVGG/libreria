@@ -188,11 +188,11 @@
       type="email"
       class="form-control c_login_email2"
       name="r_correo"
-      id="login_correo_id"
+      id="register_correo"
       value="example@outlook.com"
       required
     />
-    <div class="invalid-feedback">
+    <div id="invalid-feedback_correo" class="invalid-feedback">
       El correo electrónico es incorrecto.
     </div>
   </div>
@@ -203,11 +203,11 @@
       type="password"
       name="r_password"
       class="form-control c_login_password2"
-      id="login_password_id"
+      id="register_password_id"
       required
     />
-    <div class="invalid-feedback">
-      Coloca una contraseña más segura.
+    <div id="invalid-feedback_pass" class="invalid-feedback">
+    Debe tener 1 letra minúscula, 1 letra mayúscula, 1 número y tener al menos 8 caracteres
     </div>
   </div>
   <!-- Confirmar contraseña -->
@@ -219,10 +219,10 @@
       type="password"
       name="r_password1"
       class="form-control c_login_password2_c"
-      id="login_password1_id"
+      id="register_password1"
       required
     />
-    <div class="invalid-feedback">La contraseña no es la misma.</div>
+    <div class="invalid-feedback">Confirma tu constraseña.</div>
   </div>
   <!-- Terminos y condiciones -->
   <div class="col-12">
@@ -292,7 +292,7 @@
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="../js/login.js"></script>
     <script src="../js/register.js"></script>
-    <script type="module" src="../js/validate.js"></script>
+    
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

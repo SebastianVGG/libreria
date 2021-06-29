@@ -7,29 +7,38 @@ if (!isset($_SESSION['correo'])) {
   // EDITAR PERFIL PHP
   if (isset($_POST['btn_editar']))
     if (isset($_POST['nombre_form']) && isset($_POST['apellidos_form']) && isset($_POST['correo_form']) && isset($_POST['pass_form'])) {
-
-      $nombre = $_POST['nombre_form'];
-      $apellidos = $_POST['apellidos_form'];
-      $correo = $_POST['correo_form'];
-      $password = $_POST['pass_form'];
-      $sql = "UPDATE usuarios SET  nombre= '$nombre',apellidos= '$apellidos',correo = '$correo', pass = '$password' WHERE id = " . intval($_SESSION['id_']);
-      if (mysqli_query($link, $sql)) {
-        $_SESSION['nombre'] = $nombre;
-        $_SESSION['apellidos'] = $apellidos;
-        $_SESSION['correo'] = $correo;
-        $_SESSION['pass'] = $password;
-        $html = '';
-        $html .= '<div class="alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Se actualizo correctamente. </strong>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-      } else {
+      if($_SESSION['pass'] == $_POST['pass_form']){
+        $nombre = $_POST['nombre_form'];
+        $apellidos = $_POST['apellidos_form'];
+        $correo = $_POST['correo_form'];
+        $password = $_POST['pass_form'];
+  
+        $sql = "UPDATE usuarios SET  nombre= '$nombre',apellidos= '$apellidos',correo = '$correo' WHERE id = " . intval($_SESSION['id_']);
+        if (mysqli_query($link, $sql)) {
+          $_SESSION['nombre'] = $nombre;
+          $_SESSION['apellidos'] = $apellidos;
+          $_SESSION['correo'] = $correo;
+          $_SESSION['pass'] = $password;
+          $html = '';
+          $html .= '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Se actualizo correctamente. </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        } else {
+          $html = '';
+          $html .= '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error en el servidor. </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        }
+      }else{
         $html = '';
         $html .= '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <strong>Error en el servidor. </strong>
+          <strong>Contraseña incorrecta. </strong>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
       }
+
     } else {
       $html = '';
       $html .= '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -284,6 +293,7 @@ if (!isset($_SESSION['correo'])) {
               <div><a href="session/logout.php"><button class="btn btn-info btn_logout" type="submit"> Cerrar Sesión </button></a></div>
             </section>
           </div>
+          <?php if($_SESSION['tipo'] == 'administrador'){ ?>
           <div class="row row_btn_add">
             <section>
               <div><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Agregar Libros</button></div>
@@ -294,7 +304,7 @@ if (!isset($_SESSION['correo'])) {
               <div><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#update">Eliminar y editar Libros</button></div>
             </section>
           </div>
-
+       <?php } ?>
         </div>
       </div>
 
@@ -323,10 +333,12 @@ if (!isset($_SESSION['correo'])) {
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Correo</label>
                 <input type="email" name="correo_form" value="<?= $_SESSION['correo'] ?>" class="form-control" id="correo_id" required>
+                <div class="invalid-feedback">Escribe un correo electronico.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Password</label>
                 <input type="password" name="pass_form" class="form-control" id="pass_id" required>
+                <div class="invalid-feedback">Escribe tu contraseña.</div>
               </div>
               <div>
                 <button name="btn_editar" type="submit" class="btn btn-primary">Guardar</button>
@@ -355,42 +367,42 @@ if (!isset($_SESSION['correo'])) {
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Titulo</label>
                 <input type="text" name="add_titulo" class="form-control" id="nombre_id" required>
-                <div class="invalid-feedback">Escribe un nombre.</div>
+                <div class="invalid-feedback">Escribe el titulo del libro.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">ISBN</label>
                 <input type="text" name="add_isbn" class="form-control" id="nombre_id" required>
-                <div class="invalid-feedback">Escribe un nombre.</div>
+                <div class="invalid-feedback">Escribe el ISBN del libro.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Idioma</label>
                 <input type="text" name="add_idioma" class="form-control" id="nombre_id" required>
-                <div class="invalid-feedback">Escribe un nombre.</div>
+                <div class="invalid-feedback">Escribe el idioma del libro.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Páginas</label>
                 <input type="text" name="add_paginas" class="form-control" id="nombre_id" required>
-                <div class="invalid-feedback">Escribe un nombre.</div>
+                <div class="invalid-feedback">Número de páginas del libro.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Fecha</label>
                 <input type="text" name="add_fecha" class="form-control" id="apellidos_id" required>
-                <div class="invalid-feedback">Escribe tus apellidos.</div>
+                <div class="invalid-feedback">Fecha del libro.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Descripción</label>
                 <input type="text" name="add_descripcion" class="form-control" id="apellidos_id" required>
-                <div class="invalid-feedback">Escribe tus apellidos.</div>
+                <div class="invalid-feedback">Escribe la descripción del libro.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">URL</label>
                 <input type="text" name="add_img" class="form-control" id="apellidos_id" required>
-                <div class="invalid-feedback">Escribe tus apellidos.</div>
+                <div class="invalid-feedback">Coloca el URL de la imagen del libro.</div>
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label form-label">Precio</label>
                 <input type="text" name="add_precio" class="form-control" id="apellidos_id" required>
-                <div class="invalid-feedback">Escribe tus apellidos.</div>
+                <div class="invalid-feedback">Coloca el precio del libro.</div>
               </div>
               <div class="mb-3">
                 <select name="select_formato" class="form-select" id="select_" required>
@@ -499,7 +511,6 @@ if (!isset($_SESSION['correo'])) {
                       <td><?= $autor[0]['nombre'] ?></td>
                       <td><button type="submit" name="btn_delete" class="btn btn-danger" value="<?= $last_id ?>">Eliminar</button></td>
                       <td><button type="submit" name="btn_select_update" class="btn btn-success " value="<?= $last_id ?> ">Editar</button></td>
-                      <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#update2"></button> -->
                     </tr>
                   <?php endwhile ?>
                 </tbody>
@@ -556,49 +567,49 @@ if (!isset($_SESSION['correo'])) {
 
             <input type="text" name="upd_titulo" value="<?= $titulo ?>" placeholder="Titulo" class="form-control" id="nombre_id" required>
             <label for="recipient-name" class="col-form-label form-label">Titulo</label>
-            <div class="invalid-feedback">Escribe un nombre.</div>
+            <div class="invalid-feedback">Escribe el titulo del libro.</div>
           </div>
           <div class="mb-3 form-floating">
 
             <input type="text" value="<?= $isbn ?>" placeholder="ISBN" name="upd_isbn" class="form-control" id="nombre_id" required>
             <label for="recipient-name" class="col-form-label form-label">ISBN</label>
-            <div class="invalid-feedback">Escribe un nombre.</div>
+            <div class="invalid-feedback">>Escribe el ISBN del libro.</div>
           </div>
           <div class="mb-3 form-floating">
 
             <input type="text" value="<?= $idioma ?>" placeholder="Idioma" name="upd_idioma" class="form-control" id="nombre_id" required>
             <label for="recipient-name" class="col-form-label form-label">Idioma</label>
-            <div class="invalid-feedback">Escribe un nombre.</div>
+            <div class="invalid-feedback">Escribe el idioma del libro.</div>
           </div>
           <div class="mb-3 form-floating">
 
             <input type="text" value="<?= $paginas ?>" placeholder="Páginas" name="upd_paginas" class="form-control" id="nombre_id" required>
             <label for="recipient-name" class="col-form-label form-label">Páginas</label>
-            <div class="invalid-feedback">Escribe un nombre.</div>
+            <div class="invalid-feedback">Número de páginas del libro.</div>
           </div>
           <div class="mb-3 form-floating">
 
             <input type="text" value="<?= $fecha ?>" placeholder="Fecha" name="upd_fecha" class="form-control" id="apellidos_id" required>
             <label for="recipient-name" class="col-form-label form-label">Fecha</label>
-            <div class="invalid-feedback">Escribe tus apellidos.</div>
+            <div class="invalid-feedback">Fecha del libro.</div>
           </div>
           <div class="mb-3 form-floating">
 
             <textarea value="<?= $descripcion ?>" placeholder="Descripción" name="upd_descripcion" class="form-control" required><?= $descripcion ?></textarea>
             <label for="recipient-name" class="col-form-label form-label">Descripción</label>
-            <div class="invalid-feedback">Escribe tus apellidos.</div>
+            <div class="invalid-feedback">Escribe la descripción del libro.</div>
           </div>
           <div class="mb-3 form-floating">
 
             <input type="text" value="<?= $img ?>" placeholder="URL" name="upd_img" class="form-control" id="apellidos_id" required>
             <label for="recipient-name" class="col-form-label form-label">URL</label>
-            <div class="invalid-feedback">Escribe tus apellidos.</div>
+            <div class="invalid-feedback">Coloca el URL de la imagen del libro.</div>
           </div>
           <div class="mb-3 form-floating">
 
             <input type="text" value="<?= $precio ?>" placeholder="Precio" name="upd_precio" class="form-control" id="apellidos_id" required>
             <label for="recipient-name" class="col-form-label form-label">Precio</label>
-            <div class="invalid-feedback">Escribe tus apellidos.</div>
+            <div class="invalid-feedback">Coloca el precio del libro.</div>
           </div>
           <div class="mb-3">
             <select name="select_formato_upd" class="form-select" id="select_" required>

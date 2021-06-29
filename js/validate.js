@@ -84,4 +84,3 @@ const validateCreditCard = (card) => {
     else console.log('card incorrecto')
 }
 
-validateEmail('dorian@gmail.com')

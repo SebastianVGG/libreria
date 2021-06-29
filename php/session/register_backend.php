@@ -23,7 +23,7 @@ if (isset($_POST["r_correo"]) && !empty($_POST["r_correo"]) && !is_numeric($_POS
   echo json_encode($return_arr);
   exit();
 }
-if (isset($_POST["r_password"]) && !empty($_POST["r_password"]) && !is_numeric($_POST["r_password"])) {
+if (isset($_POST["r_password"]) && !empty($_POST["r_password"]) && isset($_POST["r_password1"]) && !empty($_POST["r_password1"])) {
     $pass = $_POST["r_password"];
 }else{
   $return_arr = array("success" => 0, "err" =>0);
@@ -31,22 +31,30 @@ if (isset($_POST["r_password"]) && !empty($_POST["r_password"]) && !is_numeric($
   exit();
 }
 
-
-$sql = "INSERT INTO usuarios (nombre, apellidos, correo, pass, tipo, url) VALUES ('$nombre','$apellidos', '$correo', '$pass', 'usuario', 'none')";
-if (mysqli_query($link, $sql)){
-    $_SESSION['nombre'] = $nombre;
-    $_SESSION['apellidos'] = $apellidos;
-    $_SESSION['correo'] = $correo;
-    $_SESSION['pass'] = $pass;
-    $_SESSION['tipo'] = 'usuario';
-    $_SESSION['url'] = 'none';
-    $_SESSION['id_'] = $link->insert_id;
-    $return_arr = array("success" => 1);
+if ($_POST["r_password"] == $_POST["r_password1"]) {
+  $sql = "INSERT INTO usuarios (nombre, apellidos, correo, pass, tipo, url) VALUES ('$nombre','$apellidos', '$correo', '$pass', 'usuario', 'none')";
+  if (mysqli_query($link, $sql)){
+      $_SESSION['nombre'] = $nombre;
+      $_SESSION['apellidos'] = $apellidos;
+      $_SESSION['correo'] = $correo;
+      $_SESSION['pass'] = $pass;
+      $_SESSION['tipo'] = 'usuario';
+      $_SESSION['url'] = 'none';
+      $_SESSION['id_'] = $link->insert_id;
+      $return_arr = array("success" => 1);
+      echo json_encode($return_arr);
+  
+  }else{
+    $return_arr = array("success" => 0, "err" => 1);
     echo json_encode($return_arr);
-
+    exit();
+  }
 }else{
-  $return_arr = array("success" => 0, "err" => 1);
-  echo json_encode($return_arr);
+$return_arr = array("success" => 0, "err" =>2);
+echo json_encode($return_arr);
+exit();
 }
+
+
 
 ?>
