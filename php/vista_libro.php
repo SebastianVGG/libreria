@@ -4,8 +4,8 @@ include("config.php");
 
 
 if (isset($_GET["id"]))
-$id_get = $_GET["id"];
-else{
+  $id_get = $_GET["id"];
+else {
   $page = 0;
 }
 
@@ -15,13 +15,15 @@ $row = $query->fetch_assoc();
 $get_id_autor = $row['id_autor'];
 $get_autor = $link->query("SELECT * FROM autor WHERE id = $get_id_autor");
 
-$url = $row['img'];//
-$titulo = $row['titulo'];//
-$autor = $get_autor->fetch_all(MYSQLI_ASSOC);//
-$precio = $row['precio'];//
+$url = $row['img']; //
+$titulo = $row['titulo']; //
+$autor = $get_autor->fetch_all(MYSQLI_ASSOC); //
+$precio = $row['precio']; //
 $isbn = $row['isbn'];
 $idioma = $row['idioma'];
 $paginas = $row['paginas'];
+$fecha = $row['fecha'];
+$formato = $row['formato'];
 $descripcion = $row['descripcion'];
 $formato = $row['formato'];
 
@@ -31,39 +33,27 @@ $formato = $row['formato'];
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--load all styles -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="../css/carrito.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
-    ></script>
 
-    <link rel="stylesheet" href="../css/vista_libro.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <title>Document</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--load all styles -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="../css/carrito.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+  <link rel="stylesheet" href="../css/vista_libro.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <title>Document</title>
+</head>
+
+<body>
   <!-- nav -->
   <div>
     <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
@@ -119,7 +109,7 @@ $formato = $row['formato'];
           </li>
           <li class="nav-item dropdown itemMar">
             <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Otros
+              Otros
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li><a class="dropdown-item" href="categoria.php?categoria=no_ficcion">No ficción</a></li>
@@ -138,7 +128,7 @@ $formato = $row['formato'];
           </li>
           <br>
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="login.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+            <a class="nav-link text-light text-center" href="perfil.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
               <img src="../images/icons/IconPerfil.png" class="MiniIcon">
               Mi cuenta
             </a>
@@ -148,69 +138,73 @@ $formato = $row['formato'];
     </nav>
   </div>
 
-    <div class="container mt-5 mb-5">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 col_img">
-          <img class="img_libro"
-            src="<?=$url?>"
-          />
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 col_img">
+        <img class="img_libro" src="<?= $url ?>" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col_titulo">
+        <div class="titulo_">
+          <h3 class="text-center"><?= $titulo ?></h3>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col_titulo">
-          <div class="titulo_"><h3 class="text-center"><?=$titulo?></h3></div>
-          <div class="autor text-center">
-            <span class="autor">Autor: </span
-            ><span class="autor_nombre fw-bold"><?=$autor[0]['nombre']?></span>
-          </div>
+        <div class="autor text-center">
+          <span class="autor">Autor: </span><span class="autor_nombre fw-bold"><?= $autor[0]['nombre'] ?></span>
         </div>
-        <div class="col-12 col-lg-4 col_precio">
+        <div class="autor pt-2 text-center">
+          <span class="autor">Formato: </span>
+          <?php if($formato == 'fisico') echo '<span class="fw-bold">Fisico</span>'; ?>
+          <?php if($formato == 'ebook') echo '<span class="fw-bold">E-book</span>'; ?>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col_precio">
         <form action="agregarACarrito.php" method="POST" name="AgreCarrito" id="AgreCarrito" novalidate>
-          <input type="hidden" id="idLib" name="idLib" value="<?=$id_get?>">
-          <input type="hidden" id="titLib" name="titLib" value="<?=$titulo?>">
-          <div class="precio text-center"><span class="fw-bold">PRECIO: </span>$<?=$precio?></div>
+          <input type="hidden" id="idLib" name="idLib" value="<?= $id_get ?>">
+          <input type="hidden" id="titLib" name="titLib" value="<?= $titulo ?>">
+          <div class="precio text-center"><span class="fw-bold">PRECIO: </span>$<?= $precio ?></div>
           <div class="add-carrito text-center"><label for="canti">Cantidad a agregar: </label><input id="canti" name="canti" type="number" value="1" class=" m-5 InputPequeño"><input type="submit" class="btn btn-success mb-2" value="Agregar a carrito"></div>
-          </form>
+        </form>
         <div class="container">
           <div name="mostrar" id="mostrar" class="text-center e_inner">
-            
+
           </div>
-        </div>
-        </div>
-      </div>
-      <div class="row row_info">
-        <h3 class="text-center">Información adicional</h3>
-        <div class="col mt-3 icon-col">
-          <div><img src="../images/icons/isbn.svg" /><?=$isbn?></div>
-          <div class="mt-4"><img src="../images/icons/pagina.svg" /><?=$paginas?> páginas.</div>
-        </div>
-        <div class="col mt-3 icon-col">
-          <div><img src="../images/icons/idioma.svg" /><?=$idioma?></div>
-          <div class="mt-4"><img src="../images/icons/calendario.svg" />AÑO PENDIENTE</div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <h3>Sinopsis</h3>
-        <div class="col">
-          <p>
-          <?=$descripcion?>
-          </p>
         </div>
       </div>
     </div>
+    <div class="row row_info">
+      <h3 class="text-center">Información adicional</h3>
+      <div class="col mt-3 icon-col">
+        <div><img src="../images/icons/isbn.svg" /><?= $isbn ?></div>
+        <div class="mt-4"><img src="../images/icons/pagina.svg" /><?= $paginas ?> páginas.</div>
+      </div>
+      <div class="col mt-3 icon-col">
+        <div><img src="../images/icons/idioma.svg" /><?= $idioma ?></div>
+        <div class="mt-4"><img src="../images/icons/calendario.svg" /><?= $fecha ?></div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <h3>Sinopsis</h3>
+      <div class="col">
+        <p>
+          <?= $descripcion ?>
+        </p>
+      </div>
+    </div>
+  </div>
 
-    <!-- footer -->
-    <footer>
-      <div class="container-fluid">
-        <div class="row d-flex justify-content-center text-center pt-3 networks">
-          <!-- fb -->
-          <a href="#" class="bg-facebook"><img data-aos="flip-left" src="../images/icons/facebook.svg" /></a>
-          <!-- tw -->
-          <a href="#" class="bg-twitter mx-3"><img data-aos="flip-left" src="../images/icons/twitter.svg" /></a>
-          <!-- Dbb -->
-          <a href="#" class="bg-dribble">
-            <img data-aos="flip-left" src="../images/icons/dribbble.svg" />
-          </a>
-        </div>
-        <div class="
+  <!-- footer -->
+  <footer>
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center text-center pt-3 networks">
+        <!-- fb -->
+        <a href="#" class="bg-facebook"><img data-aos="flip-left" src="../images/icons/facebook.svg" /></a>
+        <!-- tw -->
+        <a href="#" class="bg-twitter mx-3"><img data-aos="flip-left" src="../images/icons/twitter.svg" /></a>
+        <!-- Dbb -->
+        <a href="#" class="bg-dribble">
+          <img data-aos="flip-left" src="../images/icons/dribbble.svg" />
+        </a>
+      </div>
+      <div class="
             d-flex flex-row
               justify-content-center
               text-center
@@ -218,32 +212,25 @@ $formato = $row['formato'];
               text-white
               links_
             ">
-          <a href="../index.php" class="link-light"><span>Inicio</span></a>
-          <a href="../acerca.html" class="link-light px-4"><span>Acerca de</span></a>
-          <a href="../contactanos.html" class="link-light"><span>Contáctanos</span></a>
-        </div>
-        <div class="row text-center pt-2 text-white">
-          <p>Aviso de privacidad | Términos y condiciones</p>
-          <p>
-            Los precios publicados en esta tienda están sujetos a cambios sin
-            previo aviso y solo son aplicables para ventas en línea.
-          </p>
-          <p>Algunos títulos están sujetos a disponibilidad.</p>
-          <p>Todos los Derechos Reservados</p>
-        </div>
+        <a href="../index.php" class="link-light"><span>Inicio</span></a>
+        <a href="../acerca.html" class="link-light px-4"><span>Acerca de</span></a>
+        <a href="../contactanos.html" class="link-light"><span>Contáctanos</span></a>
       </div>
-    </footer>
-    <script src="../js/jquery-3.6.0.js"></script>
-    <script src="../js/carrito.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-      integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      <div class="row text-center pt-2 text-white">
+        <p>Aviso de privacidad | Términos y condiciones</p>
+        <p>
+          Los precios publicados en esta tienda están sujetos a cambios sin
+          previo aviso y solo son aplicables para ventas en línea.
+        </p>
+        <p>Algunos títulos están sujetos a disponibilidad.</p>
+        <p>Todos los Derechos Reservados</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/jquery-3.6.0.js"></script>
+  <script src="../js/carrito.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+</body>
+
 </html>

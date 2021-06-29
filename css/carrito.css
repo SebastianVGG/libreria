@@ -18,6 +18,23 @@
     height: 130px;
 }
 
+.div_logout{
+    width: 20rem;
+    margin-left: 50rem;
+    margin-top: 14rem;
+}
+.div_logout h2{
+    margin: auto;
+}
+.div_logout_ button{
+    margin: auto;
+    width: 20rem;
+    margin-left: 50rem;
+    margin-top: 1rem;
+    margin-bottom: 15rem;
+}
+
+
 .MiniIcon{
     width: 20px;
     height: 20px;

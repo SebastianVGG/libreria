@@ -1,15 +1,6 @@
 <?php
-
-session_start();
-if(!isset($_SESSION['correo']))
-{
-  $sesion = '';
-  $sesion.= '<h2>Sesión no iniciada </h2><a href="login.php"><button class="btn btn-info btn_logout" type="submit"> Iniciar sesión </button></a>';
-  echo $sesion;
-}else{
-
 include("config.php");
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -98,7 +89,7 @@ include("config.php");
           </li>
           <br>
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="login.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+            <a class="nav-link text-light text-center" href="perfil.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
               <img src="../images/icons/IconPerfil.png" class="MiniIcon">
               Mi cuenta
             </a>
@@ -108,6 +99,16 @@ include("config.php");
     </nav>
   </div>
   <?php
+  if(!isset($_SESSION['correo']))
+{
+  $sesion = '';
+  $sesion.= '<div class="div_logout"><h2 class="text-center">Sesión no iniciada </h2></div>';
+  $sesion.= '<div class="div_logout_"><a href="login.php"><button class="btn btn-info btn_logout" type="submit"> Iniciar sesión </button></a></div>';
+  echo $sesion;
+  
+  
+}else{
+ 
   $idUser = $_SESSION['id_'];
   $sqlCon = "SELECT COUNT(*) as contar FROM carrito WHERE id_usuario = $idUser;";
   $consul = mysqli_query($link,$sqlCon);
@@ -226,6 +227,8 @@ include("config.php");
   }
   ?>
     
+
+    <?php } ?>
     <!-- footer -->
     <footer>
       <div class="container-fluid">
@@ -267,4 +270,4 @@ include("config.php");
     </body>
 </html>
 
-<?php } ?>
+

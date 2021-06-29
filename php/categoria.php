@@ -89,7 +89,7 @@
           </li>
           <br>
           <li class="nav-item itemMar border border-2 border-white">
-            <a class="nav-link text-light text-center" href="login.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+            <a class="nav-link text-light text-center" href="perfil.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
               <img src="../images/icons/IconPerfil.png" class="MiniIcon">
               Mi cuenta
             </a>
@@ -101,7 +101,29 @@
   <div class="container-fluid">
     <div class="row">
       <div class="row slider_">
-        <img src="https://4.bp.blogspot.com/-XatlSnF4EG8/WEjaI079R9I/AAAAAAAARPY/qlv1lsAxos49Lw4IK3RUXY-yzjcKTYRRgCLcB/s1600/Libros%2Bterror%2Bpdf%2Bnoctambulos.jpg" class="img-fluid" alt="..." />
+      <?php
+      if(isset($_GET['categoria']))
+        if($_GET['categoria'] == 'terror' or $_GET['categoria'] == 'ebook_terror')
+          echo '<img src="../images/categorias/terror.jpg" class="img-fluid" alt="..." />';
+
+        if($_GET['categoria'] == 'ciencia_ficcion'  or $_GET['categoria'] == 'ebook_ciencia_ficcion')
+          echo '<img src="../images/categorias/ciencia_ficcion.jpg" class="img-fluid" alt="..." />';
+
+        if($_GET['categoria'] == 'fantasia'  or $_GET['categoria'] == 'ebook_fantasia')
+          echo '<img src="../images/categorias/fantasia.jpg" class="img-fluid" alt="..." />';
+
+        if($_GET['categoria'] == 'romance' or $_GET['categoria'] == 'ebook_romance')
+          echo '<img src="../images/categorias/romance.jpg" class="img-fluid" alt="..." />';
+
+        if($_GET['categoria'] == 'accion' or $_GET['categoria'] == 'ebook_accion')
+          echo '<img src="../images/categorias/accion.jpg" class="img-fluid" alt="..." />';
+
+        if($_GET['categoria'] == 'clasico' or $_GET['categoria'] == 'ebook_clasico')
+          echo '<img src="../images/categorias/clasicos.jpg" class="img-fluid" alt="..." />';
+
+        if($_GET['categoria'] == 'novelas_cuentos' or $_GET['categoria'] == 'no_ficcion')
+          echo '<img src="../images/categorias/no_ficcion_-_novelas_y_cuentos.jpg" class="img-fluid" alt="..." />';
+      ?>
       </div>
       <!-- <div class="row slider_content ">
           <p>Los libros más relevantes del mes</p>

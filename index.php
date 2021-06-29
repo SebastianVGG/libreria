@@ -161,12 +161,16 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <a href="https://www.google.com.mx/">
-              <img src="/images/Carusel_GOT.jfif" class="d-block w-100" alt="..." /></a>
+            <a href="index.php">
+              <img src="images/banner1.jpg" class="d-block w-100" alt="..." /></a>
           </div>
           <div class="carousel-item">
-            <a href="https://www.google.com.mx/">
-              <img src="images/Carousel_HP.jpg" class="d-block w-100" alt="..." /></a>
+            <a href="php/categoria.php?categoria=terror">
+              <img src="images/banner2.jpg" class="d-block w-100" alt="..." /></a>
+          </div>
+          <div class="carousel-item">
+            <a href="php/categoria.php?categoria=ciencia_ficcion">
+              <img src="images/banner3.jpg" class="d-block w-100" alt="..." /></a>
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
