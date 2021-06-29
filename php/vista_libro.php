@@ -15,10 +15,10 @@ $row = $query->fetch_assoc();
 $get_id_autor = $row['id_autor'];
 $get_autor = $link->query("SELECT * FROM autor WHERE id = $get_id_autor");
 
-$url = $row['img'];
-$titulo = $row['titulo'];
-$autor = $get_autor->fetch_all(MYSQLI_ASSOC);
-$precio = $row['precio'];
+$url = $row['img'];//
+$titulo = $row['titulo'];//
+$autor = $get_autor->fetch_all(MYSQLI_ASSOC);//
+$precio = $row['precio'];//
 $isbn = $row['isbn'];
 $idioma = $row['idioma'];
 $paginas = $row['paginas'];
@@ -38,6 +38,7 @@ $formato = $row['formato'];
     <!--load all styles -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="../css/carrito.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -162,8 +163,18 @@ $formato = $row['formato'];
           </div>
         </div>
         <div class="col-12 col-lg-4 col_precio">
+        <form action="agregarACarrito.php" method="POST" name="AgreCarrito" id="AgreCarrito" novalidate>
+          <input type="hidden" id="idLib" name="idLib" value="<?=$id_get?>">
+          <input type="hidden" id="titLib" name="titLib" value="<?=$titulo?>">
           <div class="precio text-center"><span class="fw-bold">PRECIO: </span>$<?=$precio?></div>
-          <div class="add-carrito text-center"><input type="button" class="btn btn-success" value="Agregar a carrito"></div>
+          <div class="add-carrito text-center"><input type="submit" class="btn btn-success" value="Agregar a carrito"></div>
+          <div class="add-carrito text-center my-2"><label for="canti">Canidad a agregar: </label><input id="canti" name="canti" type="number" value="1" class=" mx-2 InputPequeño" min="1"></div>
+          </form>
+        <div class="container border-2 border">
+          <div name="mostrar" id="mostrar" class="text-center e_inner">
+            
+          </div>
+        </div>
         </div>
       </div>
       <div class="row row_info">
@@ -223,6 +234,8 @@ $formato = $row['formato'];
         </div>
       </div>
     </footer>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/carrito.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
