@@ -107,6 +107,13 @@ include("config.php");
       </div>
     </nav>
   </div>
+  <?php
+  $idUser = $_SESSION['id_'];
+  $sqlCount="SELECT COUNT(*) as cuenta from carrito WHERE id = $idUser";
+  $resultCount=mysqli_query($link,$sqlCount);
+  $mostrarCount = mysqli_fetch_array($resultCount);
+  if($mostrarCount['cuenta'] > 0){
+  ?>
     <div class="row px-5 py-5">
       <div class="col col-7">
         <h2 class="text-primary">Mis libros</h2>
@@ -120,7 +127,6 @@ include("config.php");
           </thead>
           <tbody>
             <?php
-              $idUser = $_SESSION['id_'];
               $sql="SELECT * from carrito WHERE id_usuario = $idUser";
               $result=mysqli_query($link,$sql);
               $subtotal = 0;
@@ -176,14 +182,11 @@ include("config.php");
             <h5 class="text-secondary">  Descuento</h5>
             <h4>Total</h4>
           </div>
-          <?php if(isset($subtotal) && isset($descuerto) && isset($total)) { ?>
           <div class="col">
             <h5 class="text-secondary" aligntext="right">$<?= $subtotal?></h5>
             <h5 class="text-secondary" aligntext="right">$<?= $descuerto?></h5>
             <h4 aligntext="right">$<?= $total?></h4>
           </div>
-          <?php } ?>
-        
         </div>
         <input type="button" class="btn btn-primary w-75 my-5 py-3" value="Realizar pago">
         <h5 class="text-primary">DESCUENTOS</h5>
@@ -197,6 +200,29 @@ include("config.php");
         <p>Los pedidos se entregan en dias laborales (de lunes a viernes), exceptuando días festivos.</p>
       </div>
     </div>
+  <?php
+  }else{
+  ?>
+    <div class="text-center mx-5 row" style="margin-top:15%; margin-bottom: 15%;">
+      <div class="col col-7">
+        <h1>Aun no has añadido libros a tu carrito.</h1>
+      </div>
+      <div class="col col-5 px-5 text-center">
+        <h5 class="text-primary">DESCUENTOS</h5>
+        <p>Descuento del 10% en compras superiores a $1,000.<br>
+          Descuento del 15% en compras superiores a $5,000.<br>
+          Descuento del 20% en compras superiores a $10,000.<br>
+          Los descuentos NO son acumulables.</p>
+        <h5 class="text-primary">POLITICA DE DEVOLUCIONES</h5>
+        <p>Tienes hasta 20 días para devolver tu producto por cualquier motivo. Para que sea valido este no debe haber sido manipulado.</p>
+        <h5 class="text-primary">ENVIO Y ENTREGA</h5>
+        <p>Los pedidos se entregan en dias laborales (de lunes a viernes), exceptuando días festivos.</p>
+      </div>
+    </div>
+  <?php
+  }
+  ?>
+    
     <!-- footer -->
     <footer>
       <div class="container-fluid">
