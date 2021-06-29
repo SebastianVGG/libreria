@@ -29,7 +29,7 @@ $(document).ready(function(){
             $("#loadData").append(data);
           }else{
             $(".loadbtn").prop("disabled", true);
-            $(".loadbtn").html('That is All');
+            $(".loadbtn").html('Son todos!');
           }
         }
       });
