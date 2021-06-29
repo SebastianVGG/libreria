@@ -58,7 +58,7 @@ if(!isset($_SESSION['correo']))
                 }else{
                     $sql = "INSERT INTO carrito (id_usuario, id_libro, cantidad) VALUES ($idUsu,$idLib, $canti);";
                     if(mysqli_query($link, $sql)){
-                        $estado_p = array("success" => 1, "TIT" => $titLib, "CANT" => $canti, "CANTFIN" => $canti);
+                        $estado_p = array("success" => 3, "TIT" => $titLib, "CANT" => $canti);
                         echo json_encode($estado_p);
                         exit();
                     } else{

@@ -24,6 +24,14 @@ $(document).ready(function(){
               </div>`;
 
               $("#mostrar").html(enviar);
+              } else if(jsonData.success == 3) {
+                let enviar = `<div class="row mt-3 justify-content-center  border-2 border">
+                <div class="text-center pt-2">
+                  <p>Se añadio ${jsonData.CANT} libro(s) '${jsonData.TIT}' a tu carrito exitosamente.</p>
+                </div>
+              </div>`;
+
+              $("#mostrar").html(enviar);
               } else{
                 let enviar = `<div class="row mt-3 justify-content-center  border-2 border">
                 <div class="text-center pt-2">
@@ -32,7 +40,7 @@ $(document).ready(function(){
               </div>`;
 
               $("#mostrar").html(enviar);
-              }
+              } 
             }
         })
         e.preventDefault();
