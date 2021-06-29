@@ -8,7 +8,7 @@ $(document).ready(function(){
             success: function(response){
               let jsonData = JSON.parse(response);
               if (jsonData.success == 1) {
-                let enviar = `<div class="row mt-3 justify-content-center">
+                let enviar = `<div class="row mt-3 justify-content-center  border-2 border">
                 <div class="text-center pt-2">
                   <p>Se añadio ${jsonData.CANT} libro(s) '${jsonData.TIT}' a tu carrito exitosamente.</p>
                   <p>Un total de: ${jsonData.CANTFIN} libros en tu carrito de este titulo.</p>
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
               $("#mostrar").html(enviar);
               } else if(jsonData.success == 0) {
-                let enviar = `<div class="row mt-3 justify-content-center">
+                let enviar = `<div class="row mt-3 justify-content-center  border-2 border">
                 <div class="text-center pt-2">
                   <p>No se ha podido realizar la operación.</p>
                 </div>
@@ -25,7 +25,7 @@ $(document).ready(function(){
 
               $("#mostrar").html(enviar);
               } else{
-                let enviar = `<div class="row mt-3 justify-content-center">
+                let enviar = `<div class="row mt-3 justify-content-center  border-2 border">
                 <div class="text-center pt-2">
                   <p>Por favor ingresa solo numeros positivos en "Cantidad a agregar".</p>
                 </div>

@@ -167,10 +167,9 @@ $formato = $row['formato'];
           <input type="hidden" id="idLib" name="idLib" value="<?=$id_get?>">
           <input type="hidden" id="titLib" name="titLib" value="<?=$titulo?>">
           <div class="precio text-center"><span class="fw-bold">PRECIO: </span>$<?=$precio?></div>
-          <div class="add-carrito text-center"><input type="submit" class="btn btn-success" value="Agregar a carrito"></div>
-          <div class="add-carrito text-center my-2"><label for="canti">Canidad a agregar: </label><input id="canti" name="canti" type="number" value="1" class=" mx-2 InputPequeño" min="1"></div>
+          <div class="add-carrito text-center"><label for="canti">Canidad a agregar: </label><input id="canti" name="canti" type="number" value="1" class=" m-5 InputPequeño"><input type="submit" class="btn btn-success mb-2" value="Agregar a carrito"></div>
           </form>
-        <div class="container border-2 border">
+        <div class="container">
           <div name="mostrar" id="mostrar" class="text-center e_inner">
             
           </div>

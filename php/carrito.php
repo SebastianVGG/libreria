@@ -109,10 +109,10 @@ include("config.php");
   </div>
   <?php
   $idUser = $_SESSION['id_'];
-  $sqlCount="SELECT COUNT(*) as cuenta from carrito WHERE id = $idUser";
-  $resultCount=mysqli_query($link,$sqlCount);
-  $mostrarCount = mysqli_fetch_array($resultCount);
-  if($mostrarCount['cuenta'] > 0){
+  $sqlCon = "SELECT COUNT(*) as contar FROM carrito WHERE id_usuario = $idUser;";
+  $consul = mysqli_query($link,$sqlCon);
+  $mostrarConteo = mysqli_fetch_array($consul);
+  if($mostrarConteo['contar'] > 0){
   ?>
     <div class="row px-5 py-5">
       <div class="col col-7">
@@ -160,7 +160,10 @@ include("config.php");
               $subtotal = $subtotal + ($mostrar['cantidad'] * $mostrarInfoLib['precio']);
               }
               mysqli_close($link);
-              if($subtotal >= 1000 && $subtotal < 5000){
+              if($subtotal < 1000){
+                $descuerto = intval($subtotal/5);
+                $total = $subtotal - $descuerto;
+              }else if($subtotal >= 1000 && $subtotal < 5000){
                 $descuerto = intval($subtotal/10);
                 $total = $subtotal - $descuerto;
               }else if($subtotal >= 5000 && $subtotal < 10000){
