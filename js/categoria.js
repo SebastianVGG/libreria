@@ -25,9 +25,11 @@ $(document).ready(function(){
         data:{page_no:page},
         success:function(data){
           if (data) {
+            console.log(data)
             $("#pagination").remove();
             $("#loadData").append(data);
           }else{
+            console.log(data)
             $(".loadbtn").prop("disabled", true);
             $(".loadbtn").html('Son todos!');
           }
@@ -40,8 +42,14 @@ $(document).ready(function(){
     //     <div class="lds-ring">aqui
     //     </div>
     //   `);
+    if($(this).data("id") == -1){
+      $(".loadbtn").prop("disabled", true);
+      $(".loadbtn").html('Son todos!');
+    }else{
       var pId = $(this).data("id");
       loadMoreData(pId);
+    }
+
     });
 
 

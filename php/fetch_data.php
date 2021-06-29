@@ -4,15 +4,13 @@
 include("config.php");
 
 $limit = 8;
+$page = 1;
 $formato_ebook = false;
 $novedades = false;
 $novedades_ebook = false;
 
-	if (isset($_POST['page_no'])) {
-		$page = $_POST['page_no'];
-	}else{
-		$page = 0;
-	}
+	if (isset($_POST['page_no'])) 
+		$page = $_POST['page_no'] + 1;
 
 	if (isset($_GET['categoria'])) 
 		$categoria_get = $_GET['categoria'];
@@ -76,15 +74,30 @@ switch ($categoria_get) {
         break;
 }
 
+
+
+
 if($novedades)
     $sql = "SELECT * FROM libro ORDER BY id DESC limit 0, $limit";
 elseif($novedades_ebook)
     $sql = "SELECT * FROM libro WHERE formato = 'ebook' ORDER BY id DESC limit 0, $limit";
-elseif($formato_ebook)
-    $sql = "SELECT * FROM libro where id_categoria = $id_categoria and formato = 'ebook' limit  $page, $limit";
+elseif($formato_ebook){
+    if($page == 1)
+    $sql = "SELECT * FROM libro where id_categoria = $id_categoria and formato = 'ebook' limit 0, 8";
+    else{
+        $next_offset = $page * $limit;
+        $sql = "SELECT * FROM libro where id_categoria = $id_categoria and formato = 'ebook' limit  $limit, $next_offset";
+    }
+}  
+else{
+    if($page == 1)
+    $sql = "SELECT * FROM libro where id_categoria = $id_categoria limit 0, 8";
+    else{
+        $next_offset = $page * $limit;
+        $sql = "SELECT * FROM libro where id_categoria = $id_categoria limit $limit, $next_offset";
+    }
+}
     
-else
-    $sql = "SELECT * FROM libro where id_categoria = $id_categoria limit $page, $limit";
 
 
 $query = $link->query($sql);
@@ -92,12 +105,12 @@ if ($query->num_rows > 0) {
     $html = '';
 while($row = $query->fetch_assoc()){
     $last_id = $row['id'];
-          $url = $row['img'];
-          $titulo = $row['titulo'];
-          $precio = $row['precio'];
-          $get_id_autor = $row['id_autor'];
-          $get_autor = $link->query("SELECT * FROM autor WHERE id = $get_id_autor");
-          $autor = $get_autor->fetch_all(MYSQLI_ASSOC);
+    $url = $row['img'];
+    $titulo = $row['titulo'];
+    $precio = $row['precio'];
+    $get_id_autor = $row['id_autor'];
+    $get_autor = $link->query("SELECT * FROM autor WHERE id = $get_id_autor");
+    $autor = $get_autor->fetch_all(MYSQLI_ASSOC);
     // Creating HTML structure
     $html .='<div class="col">';
     $html .='<div class="card">';
@@ -107,20 +120,35 @@ while($row = $query->fetch_assoc()){
     $html .='<h6 class="card-text text-center pt-2">';
     $html .='<span class="autor">Autor </span><span class="autor_nombre fw-bold">'.$autor[0]['nombre'].'</span>';
     $html .='</h6>';
-    $html .='<h3 class="card-text text-center libro_precio pt-5">$'.$precio.'</h3>';
+    if($row['formato'] == 'ebook'){
+        $html .='<h6 class="card-text text-center pt-2">';
+        $html .='<span class="autor">Formato </span><span class="fw-bold">E-book</span>';
+        $html .='</h6>';
+    }else{
+        $html .='<h6 class="card-text text-center pt-2">';
+        $html .='<span class="autor">Formato </span><span class="fw-bold">Fisico</span>';
+        $html .='</h6>';
+    }
+    $html .='<h3 class="card-text text-center libro_precio pt-1">$'.$precio.'</h3>';
     $html .='</div>';
     $html .='</div>';
     $html .='</div>';
-
 }
 
 if($novedades or $novedades_ebook){
     echo $html;
 }else{
-    $html .= "<div id='pagination'>
-    <button class='btn loadbtn ' data-id='{$last_id}'>Ver más contenido</button>
-    </div>";
-    echo $html;
+    if($query->num_rows < 8){
+        $html .= "<div id='pagination'>
+        <button class='btn loadbtn' data-id='-1'>Ver más contenido</button>
+        </div>";
+        echo $html;
+    }else{
+        $html .= "<div id='pagination'>
+        <button class='btn loadbtn' data-id='{$page}'>Ver más contenido</button>
+        </div>";
+        echo $html;
+    }
 }
 
 }

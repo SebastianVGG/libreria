@@ -35,7 +35,9 @@
   width: 80%;
 }
 .card{
-  border-style: none;
+  border-style: solid;
+  border-radius: 2rem;
+  border:1rem;
   width: 18rem;
   height: 25rem;
   margin: auto !important;
@@ -52,6 +54,8 @@
   transition: 1.5s ease;
   -webkit-transition: 1.5s ease; 
 }
+
+
 
 .card img:hover{
   cursor: pointer;
