@@ -45,7 +45,10 @@ $(document).ready(function(){
         })
         e.preventDefault();
     })
+ 
 })
+
+
 function quitarDeCarrito($id){
     $.ajax({
         type: "POST",

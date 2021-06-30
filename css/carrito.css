@@ -1,51 +1,80 @@
-.dropdown:hover>.dropdown-menu {
-    display: inline-block;
+.dropdown:hover > .dropdown-menu {
+  display: inline-block;
 }
 
-.nav1{
-    width: 100%;
-    z-index: 100;
-    position: fixed;
+.nav1 {
+  width: 100%;
+  z-index: 100;
+  position: fixed;
 }
 
-.itemMar{
-    margin-left: 20px;
-    margin-right: 20px;
+.itemMar {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.LibroPortada{
-    width: 80px; 
-    height: 130px;
+.LibroPortada {
+  width: 80px;
+  height: 130px;
 }
 
-.div_logout{
-    width: 20rem;
-    margin-left: 50rem;
-    margin-top: 14rem;
+.div_logout {
+  width: 20rem;
+  margin-left: 50rem;
+  margin-top: 14rem;
 }
-.div_logout h2{
-    margin: auto;
+.div_logout h2 {
+  margin: auto;
 }
-.div_logout_ button{
-    margin: auto;
-    width: 20rem;
-    margin-left: 50rem;
-    margin-top: 1rem;
-    margin-bottom: 15rem;
-}
-
-
-.MiniIcon{
-    width: 20px;
-    height: 20px;
+.div_logout_ button {
+  margin: auto;
+  width: 20rem;
+  margin-left: 50rem;
+  margin-top: 1rem;
+  margin-bottom: 15rem;
 }
 
-.InputPequeño{
-    width: 70px;
-    text-align: center;
+.MiniIcon {
+  width: 20px;
+  height: 20px;
 }
 
-.tdCentrado{
-    vertical-align: middle;
-    text-align: center;
+.InputPequeño {
+  width: 70px;
+  text-align: center;
+}
+
+.tdCentrado {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.modal .paypal-logo {
+  font-family: Verdana, Tahoma;
+  font-weight: bold;
+  font-size: 26px;
+}
+.modal .paypal-logo i:first-child {
+  color: #253b80;
+}
+.modal .paypal-logo i:last-child {
+  color: #179bd7;
+}
+.modal .paypal-button {
+  border: 1px solid #ff9933;
+  border-radius: 5px;
+  background-image: linear-gradient(#fff0a8, #f9b421);
+  margin-left: auto;
+  width: 15rem;
+}
+.modal .paypal-button .paypal-logo {
+  display: inline-block;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+}
+.modal .paypal-button .paypal-button-title {
+  font-size: 14px;
+  color: #505050;
+  vertical-align: baseline;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 }
