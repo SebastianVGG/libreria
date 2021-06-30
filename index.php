@@ -75,9 +75,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
   <div>
     <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
       <a href="index.php"><img class="animate__animated animate__backInRight animate__slow" src="images/icons/LogoBGO.png" /></a>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-outline-light mx-2" type="submit">Search</button>
+      <form class="d-flex" action="php/busqueda.php" method="POST" novalidate>
+        <input id="busNow" name="busNow" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-light mx-2" type="submit">Buscar</button>
       </form>
     </nav>
   </div>

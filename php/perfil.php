@@ -167,15 +167,15 @@ if (!isset($_SESSION['correo'])) {
 
   <body>
     <!-- nav -->
-    <div>
-      <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
-        <a href="../index.php"><img class="animate__animated animate__backInRight animate__slow" src="../images/icons/LogoBGO.png" /></a>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button class="btn btn-outline-light mx-2" type="submit">Search</button>
-        </form>
-      </nav>
-    </div>
+  <div>
+    <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">
+      <a href="../index.php"><img class="animate__animated animate__backInRight animate__slow" src="../images/icons/LogoBGO.png" /></a>
+      <form class="d-flex" action="busqueda.php" method="POST" novalidate>
+        <input id="busNow" name="busNow" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-light mx-2" type="submit">Buscar</button>
+      </form>
+    </nav>
+  </div>
     <div>
       <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary px-5">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
