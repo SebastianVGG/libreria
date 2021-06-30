@@ -118,7 +118,7 @@ while($row = $query->fetch_assoc()){
     $html .='<div class="card-body">';
     $html .='<a href="vista_libro.php?id='.$last_id.'"><h5 class="card-title text-center pt-1"><span>'.$titulo.'</span></h5></a>';
     $html .='<h6 class="card-text text-center pt-2">';
-    $html .='<span class="autor">Autor </span><span class="autor_nombre fw-bold">'.$autor[0]['nombre'].'</span>';
+    $html .='<span class="autor">Autor </span><a href="busqueda.php?busNow='.$autor[0]['nombre'].'"><span class="autor_nombre fw-bold">'.$autor[0]['nombre'].'</span></a>';
     $html .='</h6>';
     if($row['formato'] == 'ebook'){
         $html .='<h6 class="card-text text-center pt-2">';

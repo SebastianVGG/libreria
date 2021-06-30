@@ -29,90 +29,95 @@
       </form>
     </nav>
   </div>
-        <div>
-            <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary px-5">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto navbar-nav-scroll">
-                <li class="nav-item dropdown itemMar">
-                    <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Libros
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=novedades">Novedades</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=novedades_ebook">Novedades Ebooks</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown itemMar">
-                    <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Adolescentes
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=terror">Terror</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=ciencia_ficcion">Ciencia ficción</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=romance">Romance</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=fantasia">Fantasía</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=clasico">Clásicos</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=accion">Acción</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown itemMar">
-                    <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Ebooks
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=novedades_ebook">Novedades</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_terror">Terror</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_ciencia_ficcion">Ciencia ficción</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_romance">Romance</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_fantasia">Fantasía</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_clasico">Clásicos</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=ebook_accion">Acción</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown itemMar">
-                    <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Otros
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=no_ficcion">No ficción</a></li>
-                    <li><a class="dropdown-item" href="php/categoria.php?categoria=novelas_cuentos">Novelas y Cuentos</a></li>
-                    </ul>
-                </li>
-                </ul>
-            </div>
-            <div class="d-inline">
-                <ul class="navbar-nav navbar-nav-scroll d-flex-inline" style="text-align:right">
-                <li class="nav-item itemMar border border-2 border-white">
-                    <a class="nav-link text-light text-center" href="php/carrito.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
-                    <img src="../images/icons/IconCarrito.png" class="MiniIcon">
-                    Carrito
-                    </a>
-                </li>
-                <br>
-                <li class="nav-item itemMar border border-2 border-white">
-                    <a class="nav-link text-light text-center"  href="php/perfil.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
-                    <img src="../images/icons/IconPerfil.png" class="MiniIcon">
-                    Mi cuenta
-                    </a>
-                </li>
-                </ul>
-            </div>
-            </nav>
-        </div>
+  <div>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary px-5">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto navbar-nav-scroll">
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Libros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="categoria.php?categoria=novedades">Novedades</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=novedades_ebook">Novedades Ebooks</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Adolescentes
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="categoria.php?categoria=terror">Terror</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ciencia_ficcion">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=romance">Romance</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=fantasia">Fantasía</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=clasico">Clásicos</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=accion">Acción</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ebooks
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="categoria.php?categoria=novedades_ebook">Novedades</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_terror">Terror</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_ciencia_ficcion">Ciencia ficción</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_romance">Romance</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_fantasia">Fantasía</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_clasico">Clásicos</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=ebook_accion">Acción</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown itemMar">
+            <a class="nav-link dropdown-toggle-split text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Otros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="categoria.php?categoria=no_ficcion">No ficción</a></li>
+              <li><a class="dropdown-item" href="categoria.php?categoria=novelas_cuentos">Novelas y Cuentos</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="d-inline">
+        <ul class="navbar-nav navbar-nav-scroll d-flex-inline" style="text-align:right">
+          <li class="nav-item itemMar border border-2 border-white">
+            <a class="nav-link text-light text-center" href="carrito.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+              <img src="../images/icons/IconCarrito.png" class="MiniIcon">
+              Carrito
+            </a>
+          </li>
+          <br>
+          <li class="nav-item itemMar border border-2 border-white">
+            <a class="nav-link text-light text-center" href="perfil.php" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+              <img src="../images/icons/IconPerfil.png" class="MiniIcon">
+              Mi cuenta
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
         <div class="container-fluid"><div class="row px-5 py-5">
         <?php
         include('config.php');
-        if(isset($_POST['busNow']) && !empty($_POST['busNow'])){
-            $sentenciaABuscar = strtoupper($_POST['busNow']);
+        if(isset($_POST['busNow']) && !empty($_POST['busNow']) || isset($_GET['busNow']) && !empty($_GET['busNow'])){
+            if(isset($_POST['busNow']) && !empty($_POST['busNow'])){
+                $sentenciaABuscar = strtoupper($_POST['busNow']);
+            }else{
+                $sentenciaABuscar = strtoupper($_GET['busNow']);
+            }
+            
         ?>
             <div class="row text-center mb-5">
                 <h2 class="text-primary">Busqueda: <span class="text-secondary" style="font-size: 25px;"><?= $sentenciaABuscar?></span></h2>
             </div>
             <div class="col col-7 text-center">
-                <h2 class="text-primary">Libros</h2>
+                <h2 class="text-primary text-center">Libros</h2>
         <?php
             $sqlCon = "SELECT COUNT(*) as contar FROM libro WHERE titulo LIKE '%$sentenciaABuscar%';";
             $consul = mysqli_query($link,$sqlCon);
@@ -121,6 +126,7 @@
         ?>
                 <table class="table">
                 <thead>
+                    <th scope="col" class="tdCentrado">Portada</th>
                     <th scope="col" class="tdCentrado">Título</th>
                     <th scope="col" class="tdCentrado">Formato</th>
                     <th scope="col" class="tdCentrado">Precio</th>
@@ -130,22 +136,16 @@
                     $sql="SELECT * from libro WHERE titulo LIKE '%$sentenciaABuscar%'";
                     $result=mysqli_query($link,$sql);
                     while($mostrar=mysqli_fetch_array($result)){
-                    ?>
-                    <tr>
-                    <td class="tdCentrado">
-                        <div class="row">
-                        <?php 
                         $idAut=$mostrar['id_autor'];
                         $sqlInfoAut="SELECT * from autor WHERE id = $idAut";
                         $resultInfoAut=mysqli_query($link,$sqlInfoAut);
                         $mostrarInfoAut = mysqli_fetch_array($resultInfoAut);
-                        ?>
-                        <div class="col-3"><img src="<?= $mostrar['img']?>" class="LibroPortada"></div>
-                        <div class="col"><h5><?= $mostrar['titulo']?></h5><br><h6>Autor: <?= $mostrarInfoAut['nombre']?> <?= $mostrarInfoAut['apellidos']?></h6></div>
-                        </div>
-                    </td>
+                    ?>
+                    <tr>
+                    <td class="tdCentrado"><div class="col"><img src="<?= $mostrar['img']?>" class="LibroPortada"></div></td>
+                    <td class="tdCentrado"><h5><?= $mostrar['titulo']?></h5><br><h6>Autor: <?= $mostrarInfoAut['nombre']?> <?= $mostrarInfoAut['apellidos']?></h6></td>
                     <td class="tdCentrado"><?php echo $mostrar['formato'] ?></td>
-                    <td class="tdCentrado">$<?php echo $mostrar['precio'] ?></td> </tr>
+                    <td class="tdCentrado">$<?php echo $mostrar['precio'] ?></td> </td>
                     <?php
                     }
                 }else{
@@ -180,23 +180,12 @@
                     $sqlA="SELECT * from autor WHERE apellidos LIKE '%$aux%'";
                     $resultA=mysqli_query($link,$sqlA);
                     while($mostrar=mysqli_fetch_array($result)){
-                        if($mostrarN=mysqli_fetch_array($resultN)){
+                        if($mostrarN=mysqli_fetch_array($resultN) || $mostrarA=mysqli_fetch_array($resultA)){
                             ?>
                             <tr>
                                 <td class="tdCentrado">
                                     <div class="row">
-                                        <div><h6 style="font-size: 30px;"><?= $mostrarN['nombre']?> <?= $mostrarN['apellidos']?></h6></div>
-                                    </div>
-                                </td>
-                                </tr>
-                            <?php
-                            $contAut++;
-                        }else if($mostrarA=mysqli_fetch_array($resultA)){
-                            ?>
-                            <tr>
-                                <td class="tdCentrado">
-                                    <div class="row">
-                                        <div><h6><?= $mostrarA['nombre']?> <?= $mostrarA['apellidos']?></h6></div>
+                                        <div><h6 style="font-size: 30px;"><?= $mostrar['nombre']?> <?= $mostrar['apellidos']?></h6></div>
                                     </div>
                                 </td>
                                 </tr>
