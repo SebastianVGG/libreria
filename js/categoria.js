@@ -25,11 +25,9 @@ $(document).ready(function(){
         data:{page_no:page},
         success:function(data){
           if (data) {
-            console.log(data)
             $("#pagination").remove();
             $("#loadData").append(data);
           }else{
-            console.log(data)
             $(".loadbtn").prop("disabled", true);
             $(".loadbtn").html('Son todos!');
           }
@@ -42,15 +40,22 @@ $(document).ready(function(){
     //     <div class="lds-ring">aqui
     //     </div>
     //   `);
-    if($(this).data("id") == -1){
-      $(".loadbtn").prop("disabled", true);
-      $(".loadbtn").html('Son todos!');
-    }else{
-      var pId = $(this).data("id");
-      loadMoreData(pId);
-    }
-
+    $('#spinn_').remove();
+    $('.loadbtn').append('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'+
+    'Cargando...');
+    setTimeout(function() { 
+      if($(this).data("id") == -1){
+        $( ".spinner-border" ).remove();
+        $(".loadbtn").prop("disabled", true);
+        $(".loadbtn").html('Son todos!');
+      }else{
+        $( ".spinner-border" ).remove();
+        var pId = $('.loadbtn').data("id");
+       
+        loadMoreData(pId);
+      }
+  },2000)
+        
     });
-
 
 });

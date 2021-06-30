@@ -140,12 +140,12 @@ if($novedades or $novedades_ebook){
 }else{
     if($query->num_rows < 8){
         $html .= "<div id='pagination'>
-        <button class='btn loadbtn' data-id='-1'>Ver más contenido</button>
+        <button class='btn loadbtn' data-id='-1'><span id='spinn_'>Ver más contenido</span></button>
         </div>";
         echo $html;
     }else{
         $html .= "<div id='pagination'>
-        <button class='btn loadbtn' data-id='{$page}'>Ver más contenido</button>
+        <button class='btn loadbtn' data-id='{$page}'><span id='spinn_'>Ver más contenido</span></button>
         </div>";
         echo $html;
     }

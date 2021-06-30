@@ -14,7 +14,7 @@
   <title>Document</title>
 </head>
 
-<body>
+<body id="body">
   <!-- nav -->
   <div>
     <nav class="navbar sticky-top navbar-dark bg-primary justify-content-between px-5">

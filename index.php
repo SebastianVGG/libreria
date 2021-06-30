@@ -2,51 +2,50 @@
 include("php/config.php");
 
 $today = date('N');
-
+$limit = 9;
 switch ($today) {
   case 1:
     $dia = "Domingo";
-    $dia_titulo = "cienca y ficcion";
+    $dia_titulo = "romance";
+    $sql = "SELECT * FROM libro where id_categoria = 3 limit 0, $limit";
     break;
 
   case 2:
   $dia = "Lunes";
-  $dia_titulo = "terror";
+  $dia_titulo = "ciencia y ficción";
+  $sql = "SELECT * FROM libro where id_categoria = 2 limit 0, $limit";
     break;
 
   case 3:
     $dia = "Martes";
-    $dia_titulo = "drama";
+    $dia_titulo = "fantasia";
+    $sql = "SELECT * FROM libro where id_categoria = 4 limit 0, $limit";
     break;
 
   case 4:
     $dia = "Miercoles";
-    $dia_titulo = "infantiles";
+    $dia_titulo = "terror";
+    $sql = "SELECT * FROM libro where id_categoria = 1 limit 0, $limit";
     break;
 
   case 5:
     $dia = "Jueves";
-    $dia_titulo = "novelas";
+    $dia_titulo = "clasicos";
+    $sql = "SELECT * FROM libro where id_categoria = 5 limit 0, $limit";
     break;
 
   case 6:
     $dia = "Viernes";
-    $dia_titulo = "eee";
+    $dia_titulo = "acción";
+    $sql = "SELECT * FROM libro where id_categoria = 6 limit 0, $limit";
     break;
 
   case 7:
     $dia = "Sabado";
-    $dia_titulo = "e";
+    $dia_titulo = "novelas y cuentos";
+    $sql = "SELECT * FROM libro where id_categoria = 8 limit 0, $limit";
     break;
 }
-if ($today == 2) {
-  
-}
-
-$today = intval($today);
-
-$limit = 9;
-$sql = "SELECT * FROM libro where id_categoria = 1 limit 0, $limit";
 $query = $link->query($sql);
 $row = $query->fetch_all(MYSQLI_ASSOC);
 ?>
@@ -192,16 +191,11 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
       <!-- Autor 1 -->
       <div class="d-flex flex-row">
         <div data-aos="fade-up-right" class="flex-column mt-5 left_">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Guillermo_del_Toro_in_2017.jpg/800px-Guillermo_del_Toro_in_2017.jpg" class="m-1" alt="..." />
+          <a href="./php/vista_libro.php?id=17"><img src="https://images-na.ssl-images-amazon.com/images/I/51j6xxd+WDL._SX327_BO1,204,203,200_.jpg" class="m-1" alt="..." /></a>
           <div class="left_t pt-3">
-            <h5 data-aos="fade-up" class="text-start">Guillermo del Toro</h5>
+            <a href="./php/vista_libro.php?id=17"><h5 data-aos="fade-up" class="text-start">EL HOBBIT</h5></a>
             <p data-aos="fade-up" data-aos-delay="300" data-aos="fade-up" class="text-center text-wrap pt-3">
-              Director, guionista, productor y novelista mexicano, galardonado
-              con el Premio Goya y varias veces con el Premio Ariel. En el
-              2018, se hizo acreedor al Globo de Oro como mejor director, por
-              su película La forma del agua. Un mes después, recibió también
-              dos Óscares por esa misma película: Mejor director y Mejor
-              película, en la 90ª edición de los premios de la Academia.
+            Smaug parecía profundamente dormido cuandoBilbo espió una vez más desde la entrada. ¡Pero fingía!¡Estaba vigilando la entrada del túnel!...Sacado de su cómodo agujero-hobbit por Gandalf y una banda de enanos, Bilbo se encuentra de pronto en medio de una conspiración que pretende apoderarse del tesoro de Smaug el Magnífico, un enorme y muy peligroso dragón...
             </p>
           </div>
         </div>
@@ -209,16 +203,11 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
       <!-- Autor 2 -->
       <div class="d-flex flex-row right_row">
         <div data-aos="fade-up-right" class="flex-column mt-5 right_">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Guillermo_del_Toro_in_2017.jpg/800px-Guillermo_del_Toro_in_2017.jpg" class="m-1" alt="..." />
+          <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/J._R._R._Tolkien%2C_1940s.jpg" class="m-1" alt="..." /></a>
           <div class="right_t pt-3">
-            <h5 data-aos="fade-up" class="text-start">Guillermo del Toro</h5>
+          <a href=""><h5 data-aos="fade-up" class="text-start">J. R. R. Tolkien</h5></a>
             <p data-aos="fade-up" data-aos-delay="300" data-aos="fade-up" class="text-center text-wrap pt-3">
-              Director, guionista, productor y novelista mexicano, galardonado
-              con el Premio Goya y varias veces con el Premio Ariel. En el
-              2018, se hizo acreedor al Globo de Oro como mejor director, por
-              su película La forma del agua. Un mes después, recibió también
-              dos Óscares por esa misma película: Mejor director y Mejor
-              película, en la 90ª edición de los premios de la Academia.
+            J. R. R. Tolkien o JRRT, fue un escritor, poeta, filólogo, lingüista y profesor universitario británico, conocido principalmente por ser el autor de las novelas clásicas de fantasía heroica El hobbit, El Silmarillion y El Señor de los Anillos.
             </p>
           </div>
         </div>
@@ -226,16 +215,11 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
       <!-- Autor 3 -->
       <div class="d-flex flex-row">
         <div data-aos="fade-up-right" class="flex-column mt-5 left_">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Guillermo_del_Toro_in_2017.jpg/800px-Guillermo_del_Toro_in_2017.jpg" class="m-1" alt="..." />
+          <a href="./php/vista_libro.php?id=53"><img src="https://images-na.ssl-images-amazon.com/images/I/51t0Ddn4sOL._SX331_BO1,204,203,200_.jpg" class="m-1" alt="..." /></a>
           <div class="left_t pt-3">
-            <h5 data-aos="fade-up" class="text-start">Guillermo del Toro</h5>
+            <a href="./php/vista_libro.php?id=53"><h5 data-aos="fade-up" class="text-start">DON QUIJOTE DE LA MANCHA</h5></a>
             <p data-aos="fade-up" data-aos-delay="300" data-aos="fade-up" class="text-center text-wrap pt-3">
-              Director, guionista, productor y novelista mexicano, galardonado
-              con el Premio Goya y varias veces con el Premio Ariel. En el
-              2018, se hizo acreedor al Globo de Oro como mejor director, por
-              su película La forma del agua. Un mes después, recibió también
-              dos Óscares por esa misma película: Mejor director y Mejor
-              película, en la 90ª edición de los premios de la Academia.
+            En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no hace mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. En el año en que se celebra el cuarto centenario de la publicación de la Segunda parte de El Quijote, presentamos esta obra en edición, con la versión a cargo de Alberto Blecua.
             </p>
           </div>
         </div>
@@ -244,16 +228,11 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
       <!-- Autor 4 -->
       <div class="d-flex flex-row mb-5 right_row">
         <div data-aos="fade-up-right" class="flex-column mt-5 right_">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Guillermo_del_Toro_in_2017.jpg/800px-Guillermo_del_Toro_in_2017.jpg" class="m-1" alt="..." />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Stephen_King%2C_Comicon.png" class="m-1" alt="..." />
           <div class="right_t pt-3">
-            <h5 data-aos="fade-up" class="text-start">Guillermo del Toro</h5>
+            <h5 data-aos="fade-up" class="text-start">Stephen King</h5>
             <p data-aos="fade-up" data-aos-delay="300" data-aos="fade-up" class="text-center text-wrap pt-3">
-              Director, guionista, productor y novelista mexicano, galardonado
-              con el Premio Goya y varias veces con el Premio Ariel. En el
-              2018, se hizo acreedor al Globo de Oro como mejor director, por
-              su película La forma del agua. Un mes después, recibió también
-              dos Óscares por esa misma película: Mejor director y Mejor
-              película, en la 90ª edición de los premios de la Academia.
+            Escritor estadounidense de novelas de terror, ficción sobrenatural, misterio, ciencia ficción y literatura fantástica. Sus libros han vendido más de 350 millones de copias​ y en su mayoría han sido adaptados al cine y a la televisión. Ha publicado 61 novelas (siete de ellas, bajo el seudónimo Richard Bachman) y siete libros de no ficción. Ha escrito, además, alrededor de doscientos relatos y novelas cortas, la mayoría de los cuales han sido recogidos en once colecciones.
             </p>
           </div>
         </div>
@@ -284,9 +263,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
                 <div class="row">
                   <div class="col-lg-4">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[0]['id'] ?>"><img src="<?= $row[0]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[0]['id'] ?>"><img src="<?= $row[0]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[0]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[0]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[0]['titulo'] ?></span>
                           </h5>
@@ -309,9 +288,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
 
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[1]['id'] ?>"><img src="<?= $row[1]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[1]['id'] ?>"><img src="<?= $row[1]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[1]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[1]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[1]['titulo'] ?></span>
                           </h5>
@@ -334,9 +313,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
 
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[2]['id'] ?>"><img src="<?= $row[2]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[2]['id'] ?>"><img src="<?= $row[2]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[2]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[2]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[2]['titulo'] ?></span>
                           </h5>
@@ -366,9 +345,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
                 <div class="row">
                   <div class="col-lg-4 col-md-12">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[3]['id'] ?>"><img src="<?= $row[3]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[3]['id'] ?>"><img src="<?= $row[3]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[3]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[3]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[3]['titulo'] ?></span>
                           </h5>
@@ -391,9 +370,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
 
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[4]['id'] ?>"><img src="<?= $row[4]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[4]['id'] ?>"><img src="<?= $row[4]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[4]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[4]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[4]['titulo'] ?></span>
                           </h5>
@@ -416,9 +395,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
 
                   <div class="col-lg-4 d-none d-lg-block">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[5]['id'] ?>"><img src="<?= $row[5]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[5]['id'] ?>"><img src="<?= $row[5]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[5]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[5]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[5]['titulo'] ?></span>
                           </h5>
@@ -448,9 +427,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
                 <div class="row">
                   <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[6]['id'] ?>"><img src="<?= $row[6]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[6]['id'] ?>"><img src="<?= $row[6]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[6]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[6]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[6]['titulo'] ?></span>
                           </h5>
@@ -473,9 +452,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
 
                   <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[7]['id'] ?>"><img src="<?= $row[7]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[7]['id'] ?>"><img src="<?= $row[7]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[7]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[7]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[7]['titulo'] ?></span>
                           </h5>
@@ -498,9 +477,9 @@ $row = $query->fetch_all(MYSQLI_ASSOC);
 
                   <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
                     <div class="card">
-                      <a href="vista_libro.php?id=<?= $row[8]['id'] ?>"><img src="<?= $row[8]['img'] ?>" class="card-img-top" /></a>
+                      <a href="./php/vista_libro.php?id=<?= $row[8]['id'] ?>"><img src="<?= $row[8]['img'] ?>" class="card-img-top" /></a>
                       <div class="card-body">
-                        <a href="vista_libro.php?id=<?= $row[8]['id'] ?>">
+                        <a href="./php/vista_libro.php?id=<?= $row[8]['id'] ?>">
                           <h5 class="card-title text-center pt-1">
                             <span><?= $row[8]['titulo'] ?></span>
                           </h5>

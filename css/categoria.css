@@ -55,8 +55,6 @@
   -webkit-transition: 1.5s ease; 
 }
 
-
-
 .card img:hover{
   cursor: pointer;
   opacity: 0.7;
@@ -83,12 +81,9 @@ color: crimson;
   border-radius:2em;
 }
 
-.loadbtn:active{
-  animation: rubberBand;
-  animation-duration: 1s;
-}
+
 .loadbtn:hover{
-  border-color: orange;
+  border-color: black;
   color: white;
 }
 
