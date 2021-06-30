@@ -36,6 +36,7 @@ $(document).ready(function(){
     }
     
     $(document).on('click', '.loadbtn', function(){
+      var num = Math.random() * (5000 - 1900);
     //     $("#loaded").html(`
     //     <div class="lds-ring">aqui
     //     </div>
@@ -54,7 +55,7 @@ $(document).ready(function(){
        
         loadMoreData(pId);
       }
-  },2000)
+  },num)
         
     });
 
